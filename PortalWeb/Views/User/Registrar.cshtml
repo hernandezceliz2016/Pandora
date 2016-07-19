@@ -1,0 +1,113 @@
+﻿@model Entity_Logic.Entity.clsUsuario
+
+@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Views/Shared/_PageMaster.cshtml";
+}
+
+<div class="padding">
+    <div class="full col-sm-9">
+        <h2> REGISTRO DE USUARIO ITECNOLOGY - SOLARIS</h2>
+        <h2>
+            <a href="#" class="btn btn-primary btn-xs pull left" data-toggle="modal" data-target="#registroModal">
+                <i class="glyphicon glyphicon-plus-sign"></i> AGREGAR USUARIO
+            </a>
+        </h2>
+    </div>
+</div>
+
+<div class="modal fade" id="registroModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">REGISTRO DE USUARIOS ITECNOLOGY BY SOLARIS</h4>
+            </div>
+            <div class="modal-body">
+
+                <form name="FrmRegUsuario" id="FrmRegUsuario" enctype="application/x-www-form-urlencoded">
+                    <p>Por Favor llenar los campos obligatorios </p>
+
+                    <div class="form-group" @*ng-class="{'has-error':FrmRegUsuario.documento.$invalid }"*@>
+                        <label for="documento">Documento Identidad</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="glyphicon glyphicon-bookmark"></i>
+                            </div>
+                            <input type="text" name="documento" ng-required="false" id="documento" ng-model="usuario.documento" numbers-only max="" class="form-control" />
+                            @*<span ng-if="FrmRegUsuario.documento.$invalid " class="glyphicon glyphicon-remove form-control-feedback"></span>*@
+                        </div>
+                        @*<span ng-if="FrmRegUsuario.documento.$invalid " class="help-block">El Documento es requerido.</span>*@
+                    </div>
+                    <div class="form-group" ng-class="{'has-error':FrmRegUsuario.apellidos.$invalid && FrmRegUsuario.apellidos.$touched}">
+                        <label for="apellidos">Apellidos</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="glyphicon glyphicon-bookmark"></i>
+                            </div>
+                            <input ng-model="usuario.apellidos" ng-required="true" name="apellidos" id="apellidos" class="form-control" type="text" placeholder="Ingrese los Apellidos">
+                            <span ng-if="FrmRegUsuario.apellidos.$invalid && FrmRegUsuario.apellidos.$touched" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                        <span ng-if="FrmRegUsuario.apellidos.$invalid && FrmRegUsuario.apellidos.$touched" class="help-block">El Apellido es requerido.</span>
+                    </div>
+
+                    <div class="form-group" ng-class="{'has-error':FrmRegUsuario.nombres.$invalid && FrmRegUsuario.nombres.$touched}">
+                        <label for="nombres">Nombres</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="glyphicon glyphicon-bookmark"></i>
+                            </div>
+                            <input ng-model="usuario.nombres" ng-required="true" name="nombres" id="nombres" class="form-control" type="text" placeholder="Ingrese los nombres">
+                            <span ng-if="FrmRegUsuario.nombres.$invalid && FrmRegUsuario.nombres.$touched" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                        <span ng-if="FrmRegUsuario.nombres.$invalid && FrmRegUsuario.nombres.$touched" class="help-block">El Nombre es requerido.</span>
+                    </div>
+
+
+                    <div class="form-group" ng-class="{'has-error':FrmRegUsuario.usuario.$invalid && FrmRegUsuario.usuario.$touched}">
+                        <label for="usuario">Usuario</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="glyphicon glyphicon-bookmark"></i>
+                            </div>
+                            <input ng-model="usuario.usuario" ng-required="true" name="usuario" id="usuario" class="form-control" type="text" placeholder="Ingrese un usuario">
+                            <span ng-if="FrmRegUsuario.usuario.$invalid && FrmRegUsuario.usuario.$touched" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                        <span ng-if="FrmRegUsuario.usuario.$invalid && FrmRegUsuario.usuario.$touched" class="help-block">El Usuario es requerido.</span>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error':FrmRegUsuario.pass.$invalid && FrmRegUsuario.pass.$touched}">
+                        <label for="pass">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="glyphicon glyphicon-bookmark"></i>
+                            </div>
+                            <input ng-model="usuario.pass" ng-required="true" name="pass" id="pass" class="form-control" type="text" placeholder="Ingrese la contraseña">
+                            <span ng-if="FrmRegUsuario.pass.$invalid && FrmRegUsuario.pass.$touched" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                        <span ng-if="FrmRegUsuario.pass.$invalid && FrmRegUsuario.pass.$touched" class="help-block">El Password es requerido.</span>
+                    </div>
+
+                    <div class="form-group" ng-class="{'has-error':FrmRegUsuario.emails.$invalid && FrmRegUsuario.emails.$touched}">
+                        <label for="emails">Correo Electronico</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="glyphicon glyphicon-link"></i>
+                            </div>
+                            <input ng-model="usuario.emails" ng-required="true" name="emails" id="emails" class="form-control" type="text" placeholder="ingrese el Correro Electronico">
+                            <span ng-if="FrmRegUsuario.emails.$invalid && FrmRegUsuario.emails.$touched" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                        <span ng-if="FrmRegUsuario.emails.$invalid && FrmRegUsuario.emails.$touched" class="help-block">El Email es requerido.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje" ng-model="usuario.mensaje" id="mensaje">{{mensaje}}</label>
+                        @*<span ng-if="FrmRegUsuario.emails.$invalid && FrmRegUsuario.emails.$touched" class="help-block">El Email es requerido.</span>*@
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="RegistrarUsuario()" type="button" class="btn btn-primary">GUARDAR CAMBIOS</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">CERRAR</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TecnologyModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="gallary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="guid" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Title" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="uploadfile">
+          <Key>
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="FileID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="300" />
+          <Property Name="FilePath" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="File" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="CodigoUsua" />
+          </Key>
+          <Property Name="CodigoUsua" Type="int" Nullable="false" />
+          <Property Name="Dni" Type="varchar" MaxLength="8" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Nombres" Type="varchar" MaxLength="100" />
+          <Property Name="Usua" Type="varchar" MaxLength="30" />
+          <Property Name="Pass" Type="varchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="FechExpiracion" Type="date" />
+          <Property Name="FechReg" Type="datetime" Precision="0" />
+          <Property Name="Estado" Type="int" />
+        </EntityType>
+        <EntityType Name="usuariodocumento">
+          <Key>
+            <PropertyRef Name="CodigoUsuaDoc" />
+          </Key>
+          <Property Name="CodigoUsuaDoc" Type="int" Nullable="false" />
+          <Property Name="CodigoUsua" Type="int" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="RutaFisica" Type="varchar" MaxLength="200" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="FechReg" Type="datetime" Precision="0" />
+          <Property Name="Estado" Type="int" />
+        </EntityType>
+        <Association Name="FK_usuario_documento">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="usuariodocumento" Type="Self.usuariodocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="CodigoUsua" />
+            </Principal>
+            <Dependent Role="usuariodocumento">
+              <PropertyRef Name="CodigoUsua" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TecnologyModelStoreContainer">
+          <EntitySet Name="gallary" EntityType="Self.gallary" Schema="solaris" store:Type="Tables" />
+          <EntitySet Name="uploadfile" EntityType="Self.uploadfile" Schema="solaris" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="solaris" store:Type="Tables" />
+          <EntitySet Name="usuariodocumento" EntityType="Self.usuariodocumento" Schema="solaris" store:Type="Tables" />
+          <AssociationSet Name="FK_usuario_documento" Association="Self.FK_usuario_documento">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="usuariodocumento" EntitySet="usuariodocumento" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TecnologyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TecnologyContext" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="gallary" EntityType="TecnologyModel.gallary" />
+          <EntitySet Name="usuario" EntityType="TecnologyModel.usuario" />
+          <EntitySet Name="usuariodocumento" EntityType="TecnologyModel.usuariodocumento" />
+          <AssociationSet Name="FK_usuario_documento" Association="TecnologyModel.FK_usuario_documento">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="usuariodocumento" EntitySet="usuariodocumento" />
+          </AssociationSet>
+          <EntitySet Name="uploadfile" EntityType="TecnologyModel.uploadfile" />
+        </EntityContainer>
+        <EntityType Name="gallary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="CodigoUsua" />
+          </Key>
+          <Property Name="CodigoUsua" Type="Int32" Nullable="false" />
+          <Property Name="Dni" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Usua" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Pass" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechExpiracion" Type="DateTime" />
+          <Property Name="FechReg" Type="DateTime" />
+          <Property Name="Estado" Type="Int32" />
+          <NavigationProperty Name="usuariodocumento" Relationship="TecnologyModel.FK_usuario_documento" FromRole="usuario" ToRole="usuariodocumento" />
+        </EntityType>
+        <EntityType Name="usuariodocumento">
+          <Key>
+            <PropertyRef Name="CodigoUsuaDoc" />
+          </Key>
+          <Property Name="CodigoUsuaDoc" Type="Int32" Nullable="false" />
+          <Property Name="CodigoUsua" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RutaFisica" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" />
+          <Property Name="FechReg" Type="DateTime" />
+          <Property Name="Estado" Type="Int32" />
+          <NavigationProperty Name="usuario" Relationship="TecnologyModel.FK_usuario_documento" FromRole="usuariodocumento" ToRole="usuario" />
+        </EntityType>
+        <Association Name="FK_usuario_documento">
+          <End Type="TecnologyModel.usuario" Role="usuario" Multiplicity="0..1" />
+          <End Type="TecnologyModel.usuariodocumento" Role="usuariodocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="CodigoUsua" />
+            </Principal>
+            <Dependent Role="usuariodocumento">
+              <PropertyRef Name="CodigoUsua" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="uploadfile">
+          <Key>
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="FileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="File" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TecnologyModelStoreContainer" CdmEntityContainer="TecnologyContext" >
+          <EntitySetMapping Name="gallary">
+            <EntityTypeMapping TypeName="TecnologyModel.gallary">
+              <MappingFragment StoreEntitySet="gallary">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="TecnologyModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechReg" ColumnName="FechReg" />
+                <ScalarProperty Name="FechExpiracion" ColumnName="FechExpiracion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Usua" ColumnName="Usua" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Dni" ColumnName="Dni" />
+                <ScalarProperty Name="CodigoUsua" ColumnName="CodigoUsua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuariodocumento">
+            <EntityTypeMapping TypeName="TecnologyModel.usuariodocumento">
+              <MappingFragment StoreEntitySet="usuariodocumento">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechReg" ColumnName="FechReg" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="RutaFisica" ColumnName="RutaFisica" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="CodigoUsua" ColumnName="CodigoUsua" />
+                <ScalarProperty Name="CodigoUsuaDoc" ColumnName="CodigoUsuaDoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uploadfile">
+            <EntityTypeMapping TypeName="TecnologyModel.uploadfile">
+              <MappingFragment StoreEntitySet="uploadfile">
+                <ScalarProperty Name="File" ColumnName="File" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileID" ColumnName="FileID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

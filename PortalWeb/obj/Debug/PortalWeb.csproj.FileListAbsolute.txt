@@ -1,0 +1,61 @@
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\roslyn\csc.exe
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\roslyn\vbc.exe
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\roslyn\VBCSCompiler.exe
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\PortalWeb.dll.config
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\PortalWeb.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\PortalWeb.pdb
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Antlr3.Runtime.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Newtonsoft.Json.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.Helpers.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.Mvc.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.Optimization.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.Razor.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.WebPages.Deployment.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.WebPages.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.WebPages.Razor.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\WebGrease.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.Helpers.xml
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.Mvc.xml
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.Optimization.xml
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.Razor.xml
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.WebPages.xml
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.WebPages.Deployment.xml
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\System.Web.WebPages.Razor.xml
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Antlr3.Runtime.pdb
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Newtonsoft.Json.xml
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\es\System.Web.Helpers.resources.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\es\System.Web.Mvc.resources.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\es\System.Web.Optimization.resources.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\es\System.Web.Razor.resources.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\es\System.Web.WebPages.resources.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\obj\Debug\PortalWeb.csprojResolveAssemblyReference.cache
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\obj\Debug\PortalWeb.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\obj\Debug\PortalWeb.pdb
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\EntityFramework.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\EntityFramework.SqlServer.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\MySql.Data.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\MySql.Data.Entity.EF6.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\EntityFramework.xml
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\EntityFramework.SqlServer.xml
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Business Logic.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Entity Logic.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\AutoMapper.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Data Access Logic.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Business Logic.pdb
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Entity Logic.pdb
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\AutoMapper.xml
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Data Access Logic.pdb

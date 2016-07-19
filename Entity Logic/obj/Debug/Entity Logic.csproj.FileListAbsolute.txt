@@ -1,0 +1,13 @@
+C:\Users\Developer02\Source\Repos\Pruebas\ProyectoPandora\Entity Logic\bin\Debug\Entity Logic.dll
+C:\Users\Developer02\Source\Repos\Pruebas\ProyectoPandora\Entity Logic\bin\Debug\Entity Logic.pdb
+C:\Users\Developer02\Source\Repos\Pruebas\ProyectoPandora\Entity Logic\obj\Debug\Entity Logic.dll
+C:\Users\Developer02\Source\Repos\Pruebas\ProyectoPandora\Entity Logic\obj\Debug\Entity Logic.pdb
+C:\Proyectos\Entity Logic\bin\Debug\Entity Logic.dll
+C:\Proyectos\Entity Logic\bin\Debug\Entity Logic.pdb
+C:\Proyectos\Entity Logic\obj\Debug\Entity Logic.csprojResolveAssemblyReference.cache
+C:\Proyectos\Entity Logic\obj\Debug\Entity Logic.dll
+C:\Proyectos\Entity Logic\obj\Debug\Entity Logic.pdb
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Entity Logic\bin\Debug\Entity Logic.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Entity Logic\bin\Debug\Entity Logic.pdb
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Entity Logic\obj\Debug\Entity Logic.dll
+C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Entity Logic\obj\Debug\Entity Logic.pdb
