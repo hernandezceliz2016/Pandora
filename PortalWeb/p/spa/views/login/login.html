@@ -1,0 +1,109 @@
+﻿<div>    
+    <button ng-click="MostrarMensaje()">Hacer Click</button>
+</div>
+
+<div>   
+
+    <div class="column col-sm-3" id="sidebar">
+        <p class="nav-title">
+            Opciones
+            <a href="#" class="pull-right">
+                <i class="glyphicon glyphicon-apple"></i>
+            </a>
+        </p>
+        <ul class="nav">
+            <li><a href="#"><i class="glyphicon glyphicon-tags"></i> Subir archivo </a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-tags"></i> Calendario </a></li>
+        </ul>
+    </div>
+    <!--fin sidebar-->
+    <!--inicio cuerpo-->
+    <div id="main" class="column col-sm-9">
+        <div class="padding">
+            <div class="full col-sm-9">
+                <h2> REGISTRO DE USUARIO ITECNOLOGY - SOLARIS</h2>
+                <h2>
+                    <a href="#" class="btn btn-primary btn-xs pull left" data-toggle="modal" data-target="#bookmarkModal">
+                        <i class="glyphicon glyphicon-plus-sign"></i> AGREGAR  USUARIO
+                    </a>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <!--fin del cuerpo-->
+
+    <div class="modal fade" id="bookmarkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">REGISTRO DE USUARIOS  ITECNOLOGY     BY SOLARIS</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form id="FrmRegUsuario">
+                        <p>Por Favor llenar los campos obligatorios </p>
+                        <div class="form-group">
+                            <label for="TipoDoc">Tipo Documento</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-folder-open"></i>
+                                </div>
+                                <select ng-model="" ng-options="value for value in TipoDocs" id="TipoDoc" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Apellidos">Apellidos</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-bookmark"></i>
+                                </div>
+                                <input ng-model="" id="Apellidos" class="form-control" type="text" placeholder="Ingrese los Apellidos">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Nombres">Nombres</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-bookmark"></i>
+                                </div>
+                                <input ng-model="" id="Nombres" class="form-control" type="text" placeholder="Ingrese los nombres">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="FechNacimiento">Fecha de Nacimiento</label>
+                            <div class="input-group date" id='datetimepicker1'>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </div>
+                                <input ng-model="" id="FechNacimiento" class="form-control" type="url" placeholder="Ingrese la Fecha Nacimiento">
+                            </div>
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('#datetimepicker1').datetimepicker();
+                                });
+                            </script>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Email">Correo Electronico</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-link"></i>
+                                </div>
+                                <input ng-model="" id="Email" class="form-control" type="url" placeholder="ingrese el Correro Electronico">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+                    <button ng-click="save()" type="button" class="btn btn-primary">GUARDAR CAMBIOS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

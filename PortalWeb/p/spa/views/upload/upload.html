@@ -1,0 +1,9 @@
+﻿<script src="../../directives/uploaddirective.js"></script>
+<h2>Cargar Archivos</h2>
+<div>
+    <form name="upload" ng-submit="uploadFile()">
+        <input type="text" ng-model="name" /><br />
+        <input type="file" name="file" uploader-model="file" />
+        <input type="submit" value="Enviar" />               
+    </form>
+</div>
