@@ -64,13 +64,17 @@
     </Compile>
     <Compile Include="CONTEXT_SOLARIS\INTERFACE_DAOIMPL\UploadeFileDaoImpl.cs" />
     <Compile Include="CONTEXT_SOLARIS\INTERFACE_DAOIMPL\UsuarioDaoImpl.cs" />
+    <Compile Include="CONTEXT_SOLARIS\INTERFACE_DAOIMPL\UsuarioDocumentoDaoImpl.cs" />
     <Compile Include="CONTEXT_SOLARIS\INTERFACE_DAO\IBaseDAO.cs" />
     <Compile Include="CONTEXT_SOLARIS\INTERFACE_DAO\IUploadeFileDAO.cs" />
     <Compile Include="CONTEXT_SOLARIS\INTERFACE_DAO\IUsuarioDAO.cs" />
+    <Compile Include="CONTEXT_SOLARIS\INTERFACE_DAO\IUsuarioDocumentoDAO.cs" />
     <Compile Include="CONTEXT_SOLARIS\INTERFACE_SERVICEIMPL\UploadeFileServiceImpl.cs" />
+    <Compile Include="CONTEXT_SOLARIS\INTERFACE_SERVICEIMPL\UsuarioDocumentoServiceImpl.cs" />
     <Compile Include="CONTEXT_SOLARIS\INTERFACE_SERVICEIMPL\UsuarioServiceImpl.cs" />
     <Compile Include="CONTEXT_SOLARIS\INTERFACE_SERVICE\IBaseService.cs" />
     <Compile Include="CONTEXT_SOLARIS\INTERFACE_SERVICE\IUploadeFileService.cs" />
+    <Compile Include="CONTEXT_SOLARIS\INTERFACE_SERVICE\IUsuarioDocumentoService.cs" />
     <Compile Include="CONTEXT_SOLARIS\INTERFACE_SERVICE\IUsuarioService.cs" />
     <Compile Include="CONTEXT_SOLARIS\TecnologyModel.Context.cs">
       <AutoGen>True</AutoGen>

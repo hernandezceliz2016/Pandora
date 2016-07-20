@@ -66,7 +66,8 @@ namespace Business_Logic.Util.autoMaper
 
         public static usuariodocumento AutoMapToUsuariodocumento(clsUsuarioDocumento clsUsuarioDocumento)
         {
-            return Mapper.Map<clsUsuarioDocumento, usuariodocumento>(clsUsuarioDocumento);
+            //return Mapper.Map<clsUsuarioDocumento, usuariodocumento>(clsUsuarioDocumento);
+            return clsAutoMaper.InicializarAutoMaper().CreateMapper().Map<clsUsuarioDocumento, usuariodocumento>(clsUsuarioDocumento);
         }
 
     }
