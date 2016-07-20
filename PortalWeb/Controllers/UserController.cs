@@ -36,6 +36,21 @@ namespace PortalWeb.Controllers
             return Json(new { Data = strMensaje, Status = intResp }, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult BuscarPorDni(string strDni)
+        {
+            try
+            {
+                var entUser = lnUser.FnBuscarUsuarioPorDni(strDni);
+                return Json(new { data = entUser }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Json(new { data = new clsUsuario(), mensaje = "No se encontro el usuario" },
+                JsonRequestBehavior.AllowGet);
+        }
+
         #endregion
 
         #region Funciones Publicas
