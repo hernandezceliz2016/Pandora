@@ -1,10 +1,8 @@
 ﻿@model Entity_Logic.Entity.clsUsuario
-
 @{
     ViewBag.Title = "Registrar";
     Layout = "~/Views/Shared/_PageMaster.cshtml";
 }
-
 <div class="padding">
     <div class="full col-sm-9">
         <h2> REGISTRO DE USUARIO ITECNOLOGY - SOLARIS</h2>
@@ -15,7 +13,6 @@
         </h2>
     </div>
 </div>
-
 <div class="modal fade" id="registroModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -24,10 +21,8 @@
                 <h4 class="modal-title" id="myModalLabel">REGISTRO DE USUARIOS ITECNOLOGY BY SOLARIS</h4>
             </div>
             <div class="modal-body">
-
                 <form name="FrmRegUsuario" id="FrmRegUsuario" enctype="application/x-www-form-urlencoded">
                     <p>Por Favor llenar los campos obligatorios </p>
-
                     <div class="form-group" @*ng-class="{'has-error':FrmRegUsuario.documento.$invalid }"*@>
                         <label for="documento">Documento Identidad</label>
                         <div class="input-group">
@@ -50,7 +45,6 @@
                         </div>
                         <span ng-if="FrmRegUsuario.apellidos.$invalid && FrmRegUsuario.apellidos.$touched" class="help-block">El Apellido es requerido.</span>
                     </div>
-
                     <div class="form-group" ng-class="{'has-error':FrmRegUsuario.nombres.$invalid && FrmRegUsuario.nombres.$touched}">
                         <label for="nombres">Nombres</label>
                         <div class="input-group">
@@ -62,7 +56,6 @@
                         </div>
                         <span ng-if="FrmRegUsuario.nombres.$invalid && FrmRegUsuario.nombres.$touched" class="help-block">El Nombre es requerido.</span>
                     </div>
-
 
                     <div class="form-group" ng-class="{'has-error':FrmRegUsuario.usuario.$invalid && FrmRegUsuario.usuario.$touched}">
                         <label for="usuario">Usuario</label>
@@ -86,7 +79,6 @@
                         </div>
                         <span ng-if="FrmRegUsuario.pass.$invalid && FrmRegUsuario.pass.$touched" class="help-block">El Password es requerido.</span>
                     </div>
-
                     <div class="form-group" ng-class="{'has-error':FrmRegUsuario.emails.$invalid && FrmRegUsuario.emails.$touched}">
                         <label for="emails">Correo Electronico</label>
                         <div class="input-group">
@@ -98,10 +90,7 @@
                         </div>
                         <span ng-if="FrmRegUsuario.emails.$invalid && FrmRegUsuario.emails.$touched" class="help-block">El Email es requerido.</span>
                     </div>
-                    <div class="form-group">
-                        <label for="mensaje" ng-model="usuario.mensaje" id="mensaje">{{mensaje}}</label>
-                        @*<span ng-if="FrmRegUsuario.emails.$invalid && FrmRegUsuario.emails.$touched" class="help-block">El Email es requerido.</span>*@
-                    </div>
+                    <span for="mensaje" ng-model="usuario.mensaje" id="mensaje" class="alert alert-danger" color="red">{{usuario.mensaje}}</span>
                 </form>
             </div>
             <div class="modal-footer">
