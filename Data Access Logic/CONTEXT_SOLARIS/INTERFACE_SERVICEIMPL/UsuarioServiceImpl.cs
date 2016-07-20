@@ -31,7 +31,7 @@ namespace Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_SERVICEIMPL
 
         public bool Update(usuario objeto)
         {
-            throw new NotImplementedException();
+            return daoUsuario.Update(objeto);
         }
 
         public void IniciarTransacion()

@@ -40,3 +40,17 @@ C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Data 
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Data Access Logic\obj\Debug\Data Access Logic.csprojResolveAssemblyReference.cache
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Data Access Logic\obj\Debug\Data Access Logic.dll
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Data Access Logic\obj\Debug\Data Access Logic.pdb
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\bin\Debug\Data Access Logic.dll.config
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\bin\Debug\Data Access Logic.dll
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\bin\Debug\Data Access Logic.pdb
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\bin\Debug\Entity Logic.dll
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\bin\Debug\EntityFramework.dll
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\bin\Debug\MySql.Data.dll
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\bin\Debug\mysql.data.entity.EF6.dll
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\bin\Debug\Entity Logic.pdb
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\bin\Debug\EntityFramework.xml
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\obj\Debug\Data Access Logic.csprojResolveAssemblyReference.cache
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\obj\Debug\Data Access Logic.dll
+C:\Users\Developer02\Source\Repos\Pandora\Data Access Logic\obj\Debug\Data Access Logic.pdb
