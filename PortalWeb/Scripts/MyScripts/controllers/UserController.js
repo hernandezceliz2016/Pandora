@@ -17,9 +17,9 @@
             data: user
         }).then(function mySucces(response) {
             debugger;
-            $window.location.href = response.data.Url;
-
-
+            $scope.usuario.mensaje = response.data.Data;
+            $scope.mensaje.alert();
+            alert("hola");
         }, function myError(response) {
             debugger;
             $scope.myWelcome = response.statusText;

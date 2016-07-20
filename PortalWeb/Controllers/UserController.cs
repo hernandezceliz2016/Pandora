@@ -13,29 +13,27 @@ namespace PortalWeb.Controllers
         #region Funciones CRUD
         // POST: User/Create
         [HttpPost]
-        public ActionResult Guardar(clsUsuario user)
+        public JsonResult Guardar(clsUsuario user)
         {
+            string strMensaje;
+            var intResp = 0;
             try
             {
-                var strMensaje = FnValidarRegistroUser(user);
+                strMensaje = FnValidarRegistroUser(user);
                 if (strMensaje.Equals(string.Empty))
                 {
                     user.Estado = 1;
                     user.FechReg = DateTime.Now;
-                    var blnResp = lnUser.FnRegistrarUsuario(user);
-                    strMensaje = blnResp > 0 ? "Se ha Registrado Correctamente" : "Error al Registrar el Usuario";
-                    ViewBag.Mensaje = strMensaje;
+                    intResp = lnUser.FnRegistrarUsuario(user);
+                    strMensaje = intResp > 0 ? "Se ha Registrado Correctamente" : "Error al Registrar el Usuario";
                 }
-                else
-                {
-                    ViewBag.Mensaje = strMensaje;
-                }
-                return Registrar();
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index");
+                Console.WriteLine(ex.Message);
+                strMensaje = "Error en registrar Comuniquese con el Administrador";
             }
+            return Json(new { Data = strMensaje, Status = intResp }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
@@ -99,7 +97,7 @@ namespace PortalWeb.Controllers
                             case 2:
                                 var redirectUrl = new UrlHelper(Request.RequestContext).Action("Registrar", "User");
                                 return Json(new { Url = redirectUrl });
-                                //  return Json(Url.Action("Registrar", "User"));
+
                         }
                     }
                 }
@@ -108,8 +106,7 @@ namespace PortalWeb.Controllers
             {
                 Console.WriteLine(ex.Message);
             }
-
-            return RedirectToAction("Index");
+            return Json(new { Url = new UrlHelper(Request.RequestContext).Action("Caducado", "User") });
         }
 
         #endregion
@@ -129,6 +126,12 @@ namespace PortalWeb.Controllers
                     : strMensaje + "El Dni ya se encuentra registrado \n";
                 strMensaje = !string.IsNullOrEmpty(user.Dni) ? strMensaje
                    : strMensaje + "Ingrese el N° de DNI \n";
+                strMensaje = !string.IsNullOrEmpty(user.Email) ? strMensaje
+                  : "Ingrese el Email \n";
+                strMensaje = !string.IsNullOrEmpty(user.Nombre) ? strMensaje
+                  : "Ingrese el Nombre \n";
+                strMensaje = !string.IsNullOrEmpty(user.Apellido) ? strMensaje
+                  : "Ingrese el Apellido \n";
                 return strMensaje;
             }
             catch (Exception ex)
