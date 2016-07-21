@@ -42,7 +42,7 @@ namespace PortalWeb.Controllers
                     };
                     {
                         var codigo = objUsuaDocLn.FnGuardarArchivo(f);
-                        if (codigo >= 0)
+                        if (codigo > 0)
                         {
                             Message = "File uploaded successfully";
                             flag = true;

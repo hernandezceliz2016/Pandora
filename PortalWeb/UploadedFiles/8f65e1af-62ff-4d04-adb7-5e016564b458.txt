@@ -1,6 +1,0 @@
-mysql -u SA -p
-enter password
-
-
-use solaris;
-   set global optimizer_switch='derived_merge=OFF';
