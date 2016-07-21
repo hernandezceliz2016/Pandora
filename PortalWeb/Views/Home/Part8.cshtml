@@ -1,38 +1,59 @@
 ﻿
 @{
     ViewBag.Title = "Part8";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_contenedor.cshtml";
 }
 
-<h2>Part8</h2>
 <div ng-app="MyApp" ng-controller="Part8Controller">
-    <form novalidate name="f1" ng-submit="SaveFile()">
-        <div style="color:red">{{Message}}</div>
-        <table>
-            <tr>
-                <td>Select File:</td>
-                <td>
-                    <input type="file" name="file" accept="text/" onchange="angular.element(this).scope().SelectedFileForUpload(this.files)" required />
-                    <span class="error" ng-show="(f1.file.$dirty || IsFormSubmitted) && f1.file.$error.required">Image required</span>
-                    <span class="error">{{FileInvalidMessage}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>Description</td>
-                <td>
-                    <input type="text" name="uFileDescription" ng-model="FileDescription" class="{{(IsFormSubmitted?'ng-dirty'+(f1.uFileDescription.$invalid?'ng-invalid':''):'')}}"/>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="submit" value="Upload File" />
-                </td>
-               
-            </tr>
-        </table>
-    </form>
+    <div class="container">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Adjuntar archivo plano</h3>            
+            </div>
+            <div class="panel-body">
+                <form novalidate name="f1" ng-submit="SaveFile()">
+                    <div style="color:red">{{Message}}</div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <span>Select File:</span>
+                            <input type="file" name="file" accept="text/" onchange="angular.element(this).scope().SelectedFileForUpload(this.files)" required />
+                            <span class="error" ng-show="(f1.file.$dirty || IsFormSubmitted) && f1.file.$error.required">Image required</span>
+                            <span class="error">{{FileInvalidMessage}}</span>
+                        </div>
+                        <div class="col-lg-7">
+                            <span>Description</span>
+                            <textarea type="text" name="uFileDescription" ng-model="FileDescription" class="{{(IsFormSubmitted?'ng-dirty'+(f1.uFileDescription.$invalid?'ng-invalid':''):'')}}" ></textarea>
+                        </div>
+                        <div class="col-lg-2">
+                            <input class="btn btn-primary" type="submit" value="Upload File" />
+                        </div>
+                    </div>                    
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Ingrese texto</h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                   <div class="col-lg-3">
+                      Ingrese texto de 160 cracteres.
+                   </div>
+                   <div class="col-lg-7">
+                       <textarea cols="40" rows="4"   maxlength="160"  ng-model="mensaje"></textarea>
+                       <span>{{160-mensaje.length}}</span>
+                   </div>
+                   <div class="col-lg-2">
+                       <input type="submit" value="Enviar mensaje" class="btn btn-primary"  />
+                   </div>
+            </div>
+        </div>
+    </div>
+
+    
 </div>
+ </div>
 @section Scripts{    
     <script src="~/Scripts/MyScripts/controllers/Part8Controller.js"></script>
 }
