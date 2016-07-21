@@ -41,5 +41,35 @@
             $scope.myWelcome = response.statusText;
         });
     };
+
+    $scope.FnModificarUser = function () {
+        debugger;
+        user.Apellido = $scope.usuario.apellido;
+        user.Nombre = $scope.usuario.nombre;
+        user.Nombres = $scope.usuario.apellido + ' ' + $scope.usuario.nombre;
+        user.Dni = $scope.usuario.dni;
+        user.Usua = $scope.usuario.user;
+        user.Pass = $scope.usuario.pass;
+        user.Email = $scope.usuario.email;
+    };
+
+    $scope.FnBusarUserPorDni = function () {
+        var url = "BuscarPorDni/?strDni=" + $scope.documentoBusqueda;
+        return $http.get(url).then(function (results) {
+            debugger;
+            var data = results.data.data;
+            if (data.Dni !== "") {
+                $scope.apellido = data.Apellido;
+                $scope.usuario.nombre = data.Nombre;
+                $scope.usuario.dni = data.Dni;
+                $scope.usuario.user = data.Usua;
+                $scope.usuario.pass = data.Pass;
+                $scope.usuario.email = data.Email;
+            } else {
+                alert("NO SE ENCONTRO EL USUARIO");
+            }
+        });
+    };
+
 }
 userController.$inject = ['$scope', '$http', '$location', '$window', 'UserService'];
