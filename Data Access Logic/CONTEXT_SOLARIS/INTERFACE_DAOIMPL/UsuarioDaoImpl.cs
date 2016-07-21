@@ -141,7 +141,20 @@ namespace Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_DAOIMPL
 
         public bool Update(usuario objeto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(objeto).State = EntityState.Modified;
+                db.Entry(objeto).Property(mc => mc.CodigoUsua).IsModified = false;
+                db.Entry(objeto).Property(mc => mc.FechReg).IsModified = false;
+                db.Entry(objeto).Property(mc => mc.Dni).IsModified = false;
+                var blnResp = db.SaveChanges() > 0;
+                return blnResp;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return false;
         }
 
         public void IniciarTransacion()

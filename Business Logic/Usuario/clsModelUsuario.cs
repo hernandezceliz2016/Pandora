@@ -41,6 +41,20 @@ namespace Business_Logic.Usuario
             return 0;
         }
 
+        public bool FnModificarUsuario(clsUsuario usuario)
+        {
+            try
+            {
+                var entidad = mapear.AutoMapToUsuario(usuario);
+                var blnResp = daoUsuario.Update(entidad);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return false;
+        }
+
         public clsUsuario FnObtenerUsuarioPorLogin(clsUsuario usuario)
         {
             try

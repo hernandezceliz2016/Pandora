@@ -36,6 +36,21 @@ namespace PortalWeb.Controllers
             return Json(new { Data = strMensaje, Status = intResp }, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult BuscarPorDni(string strDni)
+        {
+            try
+            {
+                var entUser = lnUser.FnBuscarUsuarioPorDni(strDni);
+                return Json(new { data = entUser }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Json(new { data = new clsUsuario(), mensaje = "No se encontro el usuario" },
+                JsonRequestBehavior.AllowGet);
+        }
+
         #endregion
 
         #region Funciones Publicas
@@ -92,8 +107,7 @@ namespace PortalWeb.Controllers
                             case 0:
                                 return Caducado();
                             case 1:
-                                var redirectUrl1 = new UrlHelper(Request.RequestContext).Action("Part8", "Home");
-                                return Json(new { Url = redirectUrl1 });
+                                return RedirectToAction("Index");// pagna de gugo
                             case 2:
                                 var redirectUrl = new UrlHelper(Request.RequestContext).Action("Registrar", "User");
                                 return Json(new { Url = redirectUrl });

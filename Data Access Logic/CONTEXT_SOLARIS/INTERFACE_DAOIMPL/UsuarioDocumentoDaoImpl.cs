@@ -36,10 +36,8 @@ namespace Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_DAOIMPL
             try
             {
                 db.usuariodocumento.Add(objeto);
-                db.SaveChanges();                
-                var id = db.usuariodocumento.Max(u => u.CodigoUsuaDoc);
-
-                return id;
+                db.SaveChanges();
+                return objeto.CodigoUsuaDoc;
             }
             catch (Exception ex)
             {
