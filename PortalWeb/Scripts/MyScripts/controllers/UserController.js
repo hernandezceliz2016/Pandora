@@ -1,5 +1,6 @@
 ﻿var userController = function ($scope, $http, $location, $window, UserService) {
     var user = {};
+    $scope.documento = "45019503";
     $scope.RegistrarUsuario = function () {
 
         user.Apellido = $scope.usuario.apellidos;
@@ -36,8 +37,10 @@
             headers: { 'Content-Type': 'application/json' },
             data: user
         }).then(function mySucces(response) {
+            debugger;
             $window.location.href = response.data.Url;
         }, function myError(response) {
+            debugger;
             $scope.myWelcome = response.statusText;
         });
     };

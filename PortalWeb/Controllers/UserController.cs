@@ -9,6 +9,15 @@ namespace PortalWeb.Controllers
     public class UserController : Controller
     {
         readonly clsModelUsuario lnUser = new clsModelUsuario();
+        private readonly string strSessionMensaje = string.Empty;
+
+        public UserController()
+        {
+            if (clsSessionHelper.SessionExpirada)
+            {
+                strSessionMensaje = "LA SESSION HA EXPIRADO";
+            }
+        }
 
         #region Funciones CRUD
         // POST: User/Create
@@ -57,9 +66,9 @@ namespace PortalWeb.Controllers
 
         public ActionResult Index()
         {
-            if (FnEstaAutentificado())
+            if (!clsSessionHelper.SessionExpirada)
             {
-                switch (clsContantes.userEstado)
+                switch (clsSessionHelper.FnGetUserSession.Estado)
                 {
                     case 0:
                         return Caducado();
@@ -75,7 +84,18 @@ namespace PortalWeb.Controllers
 
         public ActionResult Registrar()
         {
-            if (FnEstaAutentificado())
+            if (!clsSessionHelper.SessionExpirada)
+            {
+                return View();
+            }
+            return RedirectToAction("Index");
+        }
+
+        // GET: User/Edit/5
+        public ActionResult Modificar()
+        {
+            // if (!clsSessionHelper.SessionExpirada)
+            if (true)
             {
                 return View();
             }
@@ -95,14 +115,10 @@ namespace PortalWeb.Controllers
                 if (string.Empty.Equals(strMensaje))
                 {
                     var entidad = lnUser.FnObtenerUsuarioPorLogin(user);
-                    if (entidad.CodigoUsua > 0)
+                    clsSessionHelper.FnGetUserSession = entidad;
+                    if (clsSessionHelper.FnGetUserSession.CodigoUsua > 0)
                     {
-                        clsContantes.userApellido = entidad.Apellido;
-                        clsContantes.userCodigo = entidad.CodigoUsua;
-                        clsContantes.userDni = entidad.Dni;
-                        clsContantes.userNombre = entidad.Nombre;
-                        clsContantes.userEstado = (int)entidad.Estado;
-                        switch (entidad.Estado)
+                        switch (clsSessionHelper.FnGetUserSession.Estado)
                         {
                             case 0:
                                 return Caducado();
@@ -110,7 +126,7 @@ namespace PortalWeb.Controllers
                                 return RedirectToAction("Index");// pagna de gugo
                             case 2:
                                 var redirectUrl = new UrlHelper(Request.RequestContext).Action("Registrar", "User");
-                                return Json(new { Url = redirectUrl });
+                                return Json(new { Url = new UrlHelper(Request.RequestContext).Action("Registrar", "User") });
                         }
                     }
                 }
@@ -171,21 +187,6 @@ namespace PortalWeb.Controllers
             return "Error al Validar";
         }
 
-        private bool FnEstaAutentificado()
-        {
-            try
-            {
-                var blnResp = clsContantes.userCodigo > 0 && !string.IsNullOrEmpty(clsContantes.userApellido) &&
-                               !string.IsNullOrEmpty(clsContantes.userDni);
-                return blnResp;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return false;
-        }
-
         #endregion
 
         #region Funciones del MVC
@@ -206,11 +207,7 @@ namespace PortalWeb.Controllers
             }
         }
 
-        // GET: User/Edit/5
-        public ActionResult Modificar()
-        {
-            return Index();
-        }
+
 
         // POST: User/Edit/5
         [HttpPost]
