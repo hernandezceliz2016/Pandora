@@ -47,6 +47,7 @@ namespace Business_Logic.Usuario
             {
                 var entidad = mapear.AutoMapToUsuario(usuario);
                 var blnResp = daoUsuario.Update(entidad);
+                return blnResp;
             }
             catch (Exception ex)
             {

@@ -11,7 +11,3 @@ C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Entit
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Entity Logic\bin\Debug\Entity Logic.pdb
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Entity Logic\obj\Debug\Entity Logic.dll
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Entity Logic\obj\Debug\Entity Logic.pdb
-C:\Users\Developer02\Source\Repos\Pandora\Entity Logic\bin\Debug\Entity Logic.dll
-C:\Users\Developer02\Source\Repos\Pandora\Entity Logic\bin\Debug\Entity Logic.pdb
-C:\Users\Developer02\Source\Repos\Pandora\Entity Logic\obj\Debug\Entity Logic.dll
-C:\Users\Developer02\Source\Repos\Pandora\Entity Logic\obj\Debug\Entity Logic.pdb

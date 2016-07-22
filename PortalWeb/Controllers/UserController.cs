@@ -107,12 +107,10 @@ namespace PortalWeb.Controllers
                             case 0:
                                 return Caducado();
                             case 1:
-                                var redirectUrl = new UrlHelper(Request.RequestContext).Action("Part8", "Home");
-                                return Json(new { Url = redirectUrl });
+                                return RedirectToAction("Index");// pagna de gugo
                             case 2:
-                                var redirectUrl2 = new UrlHelper(Request.RequestContext).Action("Registrar", "User");
-                                return Json(new { Url = redirectUrl2 });
-
+                                var redirectUrl = new UrlHelper(Request.RequestContext).Action("Registrar", "User");
+                                return Json(new { Url = redirectUrl });
                         }
                     }
                 }
@@ -177,9 +175,8 @@ namespace PortalWeb.Controllers
         {
             try
             {
-                var blnResp = false;
-                blnResp = clsContantes.userCodigo > 0 && !string.IsNullOrEmpty(clsContantes.userApellido) &&
-                    !string.IsNullOrEmpty(clsContantes.userDni);
+                var blnResp = clsContantes.userCodigo > 0 && !string.IsNullOrEmpty(clsContantes.userApellido) &&
+                               !string.IsNullOrEmpty(clsContantes.userDni);
                 return blnResp;
             }
             catch (Exception ex)
@@ -210,25 +207,26 @@ namespace PortalWeb.Controllers
         }
 
         // GET: User/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Modificar()
         {
             return Index();
         }
 
         // POST: User/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public JsonResult Modificar(clsUsuario user)
         {
             try
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                // return RedirectToAction("Index");
             }
             catch
             {
-                return Index();
+
             }
+            return Json(new { data = "Hola" });
         }
 
         // GET: User/Delete/5

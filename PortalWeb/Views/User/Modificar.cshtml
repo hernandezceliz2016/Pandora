@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Modificar";
+    Layout = "~/Views/Shared/_PageMaster.cshtml";
+}
+
+<div class="padding">
+
+
+    <div class="full col-sm-6">
+        <h2 style="text-align: center"> MODIFICACION DE USUARIOS ITECNOLOGY </h2>
+
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" ng-model="documentoBusqueda" class="form-control" placeholder="Ingrese el Numero de Documento">
+                <span class="input-group-btn">
+                    <button ng-click="FnBusarUserPorDni()" class="btn btn-default" type="button">Buscar</button>
+                </span>
+            </div>
+        </div>
+        <br />
+        <br />
+        <form name="FrmModUsuario" id="FrmModUsuario" class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-xs-3">Documento:</label>
+                <div class="col-xs-9">
+                    <input type="text" ng-model="usuario.dni" class="form-control" id="documento" placeholder="Documento">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3">Nombre:</label>
+                <div class="col-xs-9">
+                    <input type="text" ng-model="usuario.nombre" id="nombre" name="nombre" class="form-control" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3">Apellido:</label>
+                <div class="col-xs-9">
+                    <input type="text" ng-model="usuario.apellido" id="apellido" name="apellido" class="form-control" placeholder="Apellidos">
+                </div>
+            </div>
+            @*<div class="form-group">
+                <label class="control-label col-xs-3">Telefono:</label>
+                <div class="col-xs-9">
+                    <input type="tel" ng-model="usuario.telefono" id="telefono" name="telefono" class="form-control" placeholder="Telefono">
+                </div>
+            </div>*@
+
+            <div class="form-group">
+                <label class="control-label col-xs-3">Email:</label>
+                <div class="col-xs-9">
+                    <input type="email" ng-model="usuario.email" id="email" name="email" class="form-control" placeholder="Correo Electronico">
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                <label class="control-label col-xs-3">Email:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-link"></i>
+                    </div>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+            </div>*@
+
+            <div class="form-group">
+                <label class="control-label col-xs-3">Usuario:</label>
+                <div class="col-xs-9">
+                    <input type="text" ng-model="usuario.user" id="user" name="user" class="form-control" placeholder="Usuario">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-xs-3">Password:</label>
+                <div class="col-xs-9">
+                    <input type="password" ng-model="usuario.pass" id="pass" name="pass" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3">Confirmar Password:</label>
+                <div class="col-xs-9">
+                    <input type="password" ng-model="usuario.passConfir" id="passConfir" name="passConfir" class="form-control" placeholder="Confirmar Password">
+                </div>
+            </div>
+
+            <br>
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-9">
+                    <input ng-click="FnModificarUser()" type="submit" class="btn btn-primary" value="GUARDAR">
+                    <input type="reset" class="btn btn-default" value="Limpiar">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
