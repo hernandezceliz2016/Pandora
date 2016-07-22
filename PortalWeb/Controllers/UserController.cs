@@ -107,10 +107,11 @@ namespace PortalWeb.Controllers
                             case 0:
                                 return Caducado();
                             case 1:
-                                return RedirectToAction("Index");// pagna de gugo
-                            case 2:
-                                var redirectUrl = new UrlHelper(Request.RequestContext).Action("Registrar", "User");
+                                var redirectUrl = new UrlHelper(Request.RequestContext).Action("Part8", "Home");
                                 return Json(new { Url = redirectUrl });
+                            case 2:
+                                var redirectUrl2 = new UrlHelper(Request.RequestContext).Action("Registrar", "User");
+                                return Json(new { Url = redirectUrl2 });
 
                         }
                     }

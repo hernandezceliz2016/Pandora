@@ -3,58 +3,63 @@
     ViewBag.Title = "Part8";
     Layout = "~/Views/Shared/_contenedor.cshtml";
 }
-
 <div ng-app="MyApp" ng-controller="Part8Controller">
     <div class="container">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">Adjuntar archivo plano</h3>            
-            </div>
-            <div class="panel-body">
-                <form novalidate name="f1" ng-submit="SaveFile()">
+        <form novalidate name="f1" ng-submit="SaveFile()">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Adjuntar archivo plano</h3>
+                </div>
+                <div class="panel-body">                    
                     <div style="color:red">{{Message}}</div>
                     <div class="row">
-                        <div class="col-lg-3">
+                        <div class="col-lg-12">
                             <span>Select File:</span>
-                            <input type="file" name="file" accept="text/" onchange="angular.element(this).scope().SelectedFileForUpload(this.files)" required />
+                            <input type="file" name="file" accept="text/plain" onchange="angular.element(this).scope().SelectedFileForUpload(this.files)" required />
                             <span class="error" ng-show="(f1.file.$dirty || IsFormSubmitted) && f1.file.$error.required">Image required</span>
                             <span class="error">{{FileInvalidMessage}}</span>
-                        </div>
-                        <div class="col-lg-7">
-                            <span>Description</span>
-                            <textarea type="text" name="uFileDescription" ng-model="FileDescription" class="{{(IsFormSubmitted?'ng-dirty'+(f1.uFileDescription.$invalid?'ng-invalid':''):'')}}" ></textarea>
-                        </div>
-                        <div class="col-lg-2">
-                            <input class="btn btn-primary" type="submit" value="Upload File" />
-                        </div>
+                        </div>                    
+                    </div>
+                    <div>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Size</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>john@example.com</td>
+                                    <td><input type="button" class="btn btn-danger btn-sm" value="delete"/></td>
+
+                                </tr>
+                            </tbody>
+                         </table>
+                        
                     </div>                    
-                </form>
+                </div>
+                <ul class="list-group">                 
+                    <li class="list-group-item">
+                        <span>Mensaje</span>
+                        @*<textarea type="text" name="uFileDescription" rows="4" ng-model="FileDescription" class="{{(IsFormSubmitted?'ng-dirty'+(f1.uFileDescription.$invalid?'ng-invalid':''):'')}}"></textarea>*@
+                        <textarea type="text" name="uFileDescription" rows="4" ng-model="FileDescription" class="form-control"></textarea>
+                        <span>{{200-FileDescription.length}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <input class="btn btn-primary" type="submit" value="Upload File" />
+                    </li>
+                </ul>
             </div>
-        </div>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">Ingrese texto</h3>
-            </div>
-            <div class="panel-body">
-               <div class="row">
-                   <div class="col-lg-3">
-                      Ingrese texto de 160 cracteres.
-                   </div>
-                   <div class="col-lg-7">
-                       <textarea cols="40" rows="4"   maxlength="160"  ng-model="mensaje"></textarea>
-                       <span>{{160-mensaje.length}}</span>
-                   </div>
-                   <div class="col-lg-2">
-                       <input type="submit" value="Enviar mensaje" class="btn btn-primary"  />
-                   </div>
-            </div>
-        </div>
+        </form>
+
     </div>
 
-    
 </div>
- </div>
-@section Scripts{    
+@section Scripts{
     <script src="~/Scripts/MyScripts/controllers/Part8Controller.js"></script>
 }
-

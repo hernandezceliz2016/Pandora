@@ -21,10 +21,10 @@
                 isValid = true;
             }
             else {
-                $scope.FileInvalidMessage = "Select file is Invalid.(only file type png, jpeg, gif and 512 kb size allowed)";
+                $scope.FileInvalidMessage = "Selecionar archivos planos (solo archivos txt y 512 kb tamaño máximo)";
             }
         } else {
-            $scope.FileInvalidMessage = "Image reqiered";
+            $scope.FileInvalidMessage = "Archivo requerido";
         }
         $scope.IsFileValid = isValid;
     }
@@ -46,7 +46,7 @@
                 alert(e);
             });
         } else {
-            $scope.Message = "All the fields are required.";
+            $scope.Message = "Adjunta archivo y mensaje ya que son requeridas !";
         }
     };
 
@@ -78,7 +78,7 @@
             defer.resolve(d);
         })
         .error(function () {
-            defer.reject("File Upload Failed!!")
+            defer.reject("File Upload Failed!!");
         });
         return defer.promise;
     }
