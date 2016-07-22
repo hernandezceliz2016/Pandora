@@ -405,6 +405,7 @@
     <Content Include="Views\User\Registrar.cshtml" />
     <Content Include="Views\Shared\_base.cshtml" />
     <Content Include="Views\User\Modificar.cshtml" />
+    <Content Include="Views\Shared\_contenedor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
