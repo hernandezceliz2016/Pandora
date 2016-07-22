@@ -116,7 +116,7 @@ namespace PortalWeb.Controllers
                 {
                     var entidad = lnUser.FnObtenerUsuarioPorLogin(user);
                     clsSessionHelper.FnGetUserSession = entidad;
-                    if (clsSessionHelper.FnGetUserSession.CodigoUsua > 0)
+                    if (clsSessionHelper.FnGetUserSession?.CodigoUsua > 0)
                     {
                         switch (clsSessionHelper.FnGetUserSession.Estado)
                         {
@@ -126,16 +126,17 @@ namespace PortalWeb.Controllers
                                 return RedirectToAction("Index");// pagna de gugo
                             case 2:
                                 var redirectUrl = new UrlHelper(Request.RequestContext).Action("Registrar", "User");
-                                return Json(new { Url = new UrlHelper(Request.RequestContext).Action("Registrar", "User") });
+                                return Json(new { Estado = clsContantes.estado.Succes, Url = redirectUrl, strMensaje = clsContantes.mensajeLoginExito });
                         }
                     }
+                    return Json((new { Estado = clsContantes.estado.Failured, Url = new UrlHelper(Request.RequestContext).Action("Index", "User"), strMensaje = clsContantes.mensajeLoginError }));
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            return Json(new { Url = new UrlHelper(Request.RequestContext).Action("Caducado", "User") });
+            return Json(new { Estado = clsContantes.estado.ErrorCritico, Url = new UrlHelper(Request.RequestContext).Action("Caducado", "User") });
         }
 
         #endregion
