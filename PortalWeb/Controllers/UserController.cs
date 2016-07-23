@@ -54,7 +54,7 @@ namespace PortalWeb.Controllers
                 {
                     return Json(new { Estado = clsContantes.estado.Succes, Data = entUser, strMensaje = string.Empty }, JsonRequestBehavior.AllowGet);
                 }
-                return Json(new { Estado = clsContantes.estado.Failured, Data = string.Empty, strMensaje = clsContantes.mensajeBusqNoEncontrada },JsonRequestBehavior.AllowGet);
+                return Json(new { Estado = clsContantes.estado.Failured, Data = string.Empty, strMensaje = clsContantes.mensajeBusqNoEncontrada }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
@@ -93,6 +93,28 @@ namespace PortalWeb.Controllers
                 return View();
             }
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public JsonResult Modificar(clsUsuario user)
+        {
+            try
+            {
+                var strMensaje = FnValidarModificacionUser(user);
+                if (strMensaje.Equals(string.Empty))
+                {
+                    user.Estado = 1;
+                    user.CodigoUsua = lnUser.FnBuscarUsuarioPorDni(user.Dni).CodigoUsua;
+                    var blnResp = new clsModelUsuario().FnModificarUsuario(user);
+                    return Json(blnResp ? new { Estado = clsContantes.estado.Succes, strMensaje = clsContantes.mensajeGuarExito } : new { Estado = clsContantes.estado.Failured, strMensaje = clsContantes.mensajeGuarError });
+                }
+                return Json(new { Estado = clsContantes.estado.Failured, strMensaje });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Json(new { Estado = clsContantes.estado.ErrorCritico, strMensaje = clsContantes.mensajeErrorCritico });
         }
 
         // GET: User/Edit/5
@@ -175,6 +197,34 @@ namespace PortalWeb.Controllers
             return "Error al Validar";
         }
 
+        private string FnValidarModificacionUser(clsUsuario user)
+        {
+            try
+            {
+                var strMensaje = string.Empty;
+                strMensaje = lnUser.FnValidarEmailCambio(user.Email.Trim(), user.Dni) ? strMensaje
+                   : strMensaje + "El Email ya se encuentra registrado \n";
+                strMensaje = lnUser.FnValidarUserCambio(user.Usua.Trim(), user.Dni) ? strMensaje
+                    : strMensaje + "El Usuario ya se encuentra registrado \n";
+                //strMensaje = lnUser.FnValidarDisponibilidadDniNew(user.Dni) ? strMensaje
+                //    : strMensaje + "El Dni ya se encuentra registrado \n";
+                //strMensaje = !string.IsNullOrEmpty(user.Dni) ? strMensaje
+                //   : strMensaje + "Ingrese el N° de DNI \n";
+                strMensaje = !string.IsNullOrEmpty(user.Email) ? strMensaje
+                  : "Ingrese el Email \n";
+                strMensaje = !string.IsNullOrEmpty(user.Nombre) ? strMensaje
+                  : "Ingrese el Nombre \n";
+                strMensaje = !string.IsNullOrEmpty(user.Apellido) ? strMensaje
+                  : "Ingrese el Apellido \n";
+                return strMensaje;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return clsContantes.mensajeErrorCritico;
+        }
+
         private string FnValidarUserLogin(clsUsuario user)
         {
             try
@@ -210,25 +260,6 @@ namespace PortalWeb.Controllers
             {
                 return Index();
             }
-        }
-
-
-
-        // POST: User/Edit/5
-        [HttpPost]
-        public JsonResult Modificar(clsUsuario user)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                // return RedirectToAction("Index");
-            }
-            catch
-            {
-
-            }
-            return Json(new { data = "Hola" });
         }
 
         // GET: User/Delete/5

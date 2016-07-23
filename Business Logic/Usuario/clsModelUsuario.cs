@@ -83,6 +83,44 @@ namespace Business_Logic.Usuario
             return false;
         }
 
+        public bool FnValidarUserCambio(string strUser, string strDni)
+        {
+            try
+            {
+                var blnUserDisponible = daoUsuario.UserDisponible(strUser);
+                if (blnUserDisponible)
+                {
+                    return true;
+                }
+                var userActual = daoUsuario.ObtenerPorDni(strDni);
+                return userActual.Usua.Equals(strUser);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return false;
+        }
+
+        public bool FnValidarEmailCambio(string strEmail, string strDni)
+        {
+            try
+            {
+                var blnEmailDisponible = daoUsuario.EmailDisponible(strEmail);
+                if (blnEmailDisponible)
+                {
+                    return true;
+                }
+                var emailActual = daoUsuario.ObtenerPorDni(strDni);
+                return emailActual.Email.Equals(strEmail);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return false;
+        }
+
         public bool FnValidarDisponibilidadEmailNew(string strEmail)
         {
             try

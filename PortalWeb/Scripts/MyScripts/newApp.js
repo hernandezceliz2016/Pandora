@@ -1,6 +1,7 @@
 ﻿var appUser = angular.module('newApp', []);
 appUser.factory('UserService', factory);
 appUser.controller('UserController', userController);
+appUser.controller('userModificarController', userModificarController);
 appUser.directive('numbersOnly', function () {
     return {
         restrict: 'A',

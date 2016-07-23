@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_PageMaster.cshtml";
 }
 
-<div class="padding">
+<div ng-controller="userModificarController" class="padding">
 
 
     <div class="full col-sm-6">
@@ -16,7 +16,7 @@
                     <button ng-click="FnBusarUserPorDni()" class="btn btn-default" type="button">Buscar</button>
                 </span>
             </div>
-            <label>{{mensajeBusqUser}}</label>
+            <span class="error alert-info">{{mensajeBusqUser}}</span>
         </div>
         <br />
         <br />
@@ -24,32 +24,32 @@
             <div class="form-group">
                 <label class="control-label col-xs-3">Documento:</label>
                 <div class="col-xs-9">
-                    <input type="text" ng-model="usuario.dni" ng-value="dni" class="form-control" id="documento" placeholder="Documento">
+                    <input type="text" ng-model="dni" ng-value="dni" class="form-control" id="documento" placeholder="Documento">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-xs-3">Nombre:</label>
                 <div class="col-xs-9">
-                    <input type="text" ng-model="usuario.nombre" ng-value="nombre" id="nombre" name="nombre" class="form-control" placeholder="Nombre">
+                    <input type="text" ng-model="nombre" ng-value="nombre" id="nombre" name="nombre" class="form-control" placeholder="Nombre">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-xs-3">Apellido:</label>
                 <div class="col-xs-9">
-                    <input type="text" ng-model="usuario.apellido" ng-value="apellido" id="apellido" name="apellido" class="form-control" placeholder="Apellidos">
+                    <input type="text" ng-model="apellido" ng-value="apellido" id="apellido" name="apellido" class="form-control" placeholder="Apellidos">
                 </div>
             </div>
             @*<div class="form-group">
                     <label class="control-label col-xs-3">Telefono:</label>
                     <div class="col-xs-9">
-                        <input type="tel" ng-model="usuario.telefono" id="telefono" name="telefono" class="form-control" placeholder="Telefono">
+                        <input type="tel" ng-model="telefono" id="telefono" name="telefono" class="form-control" placeholder="Telefono">
                     </div>
                 </div>*@
 
             <div class="form-group">
                 <label class="control-label col-xs-3">Email:</label>
                 <div class="col-xs-9">
-                    <input type="email" ng-model="usuario.email" ng-value="email" id="email" name="email" class="form-control" placeholder="Correo Electronico">
+                    <input type="email" ng-model="email" ng-value="email" id="email" name="email" class="form-control" placeholder="Correo Electronico">
                 </div>
             </div>
 
@@ -66,20 +66,20 @@
             <div class="form-group">
                 <label class="control-label col-xs-3">Usuario:</label>
                 <div class="col-xs-9">
-                    <input type="text" ng-model="usuario.user" ng-value="user" id="user" name="user" class="form-control" placeholder="Usuario">
+                    <input type="text" ng-model="user" ng-value="user" id="user" name="user" class="form-control" placeholder="Usuario">
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="control-label col-xs-3">Password:</label>
                 <div class="col-xs-9">
-                    <input type="password" ng-model="usuario.pass" ng-value="pass" id="pass" name="pass" class="form-control" id="inputPassword" placeholder="Password">
+                    <input type="password" ng-model="pass" ng-value="pass" id="pass" name="pass" class="form-control" id="inputPassword" placeholder="Password">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-xs-3">Confirmar Password:</label>
                 <div class="col-xs-9">
-                    <input type="password" ng-model="usuario.passConfir" ng-value="passConfir" id="passConfir" name="passConfir" class="form-control" placeholder="Confirmar Password">
+                    <input type="password" ng-model="passConfir" ng-value="passConfir" id="passConfir" name="passConfir" class="form-control" placeholder="Confirmar Password">
                 </div>
             </div>
 
@@ -89,6 +89,7 @@
                     <input ng-click="FnModificarUser()" type="submit" class="btn btn-primary" value="GUARDAR">
                     <input type="reset" class="btn btn-default" value="Limpiar">
                 </div>
+                <span class="error alert-info">{{strMensajeGuardarUser}}</span>
             </div>
         </form>
     </div>

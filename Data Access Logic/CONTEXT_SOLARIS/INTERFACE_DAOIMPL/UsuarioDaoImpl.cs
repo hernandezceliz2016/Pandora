@@ -27,7 +27,7 @@ namespace Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_DAOIMPL
                 var user = db.usuario.FirstOrDefault(mc => mc.Dni.Equals(strDni));
                 return user;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
             }
             return new usuario();
@@ -144,7 +144,7 @@ namespace Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_DAOIMPL
             try
             {
                 db.Entry(objeto).State = EntityState.Modified;
-                db.Entry(objeto).Property(mc => mc.CodigoUsua).IsModified = false;
+                // db.Entry(objeto).Property(mc => mc.CodigoUsua).IsModified = false;
                 db.Entry(objeto).Property(mc => mc.FechReg).IsModified = false;
                 db.Entry(objeto).Property(mc => mc.Dni).IsModified = false;
                 var blnResp = db.SaveChanges() > 0;
