@@ -4,6 +4,8 @@ using System.IO;
 using System.Web.Mvc;
 using Business_Logic.Usuario;
 using Entity_Logic.Entity;
+using System.Net.Mail;
+using System.Net;
 
 namespace PortalWeb.Controllers
 {
@@ -43,6 +45,7 @@ namespace PortalWeb.Controllers
                         {
                             Message = "File uploaded successfully";
                             flag = true;
+                            sendEmail();
                         }                        
                     }
                 }
@@ -52,6 +55,38 @@ namespace PortalWeb.Controllers
                 }
             }
             return new JsonResult { Data = new { Message = Message, Status = flag } };
+        }
+
+        public void sendEmail() {
+
+            MailMessage email = new MailMessage();
+            email.To.Add(new MailAddress("garcia.conza@gmail.com"));
+            email.From = new MailAddress("garcia.conza@gmail.com");
+            email.Subject = "Asunto ( " + DateTime.Now.ToString("dd / MMM / yyy hh:mm:ss") + " ) ";
+            email.Body = "Cualquier contenido en <b>HTML</b> para enviarlo por correo electrónico.";
+            email.IsBodyHtml = true;
+            email.Priority = MailPriority.Normal;
+
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 465;
+            smtp.EnableSsl = false;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new NetworkCredential("garcia.conza@gmail.com", "28JSF28.");
+
+            string output = null;
+
+            try
+            {
+                smtp.Send(email);
+                email.Dispose();               
+                output = "Corre electrónico fue enviado satisfactoriamente.";
+            }
+            catch (Exception ex)
+            {
+                output = "Error enviando correo electrónico: " + ex.Message;
+            }
+
         }
     }
 }
