@@ -149,10 +149,11 @@ namespace PortalWeb.Controllers
                             case 0:
                                 return Caducado();
                             case 1:
-                                return RedirectToAction("Index");// pagna de gugo
-                            case 2:
-                                var redirectUrl = new UrlHelper(Request.RequestContext).Action("Registrar", "User");
+                                var redirectUrl = new UrlHelper(Request.RequestContext).Action("Part8", "Home");
                                 return Json(new { Estado = clsContantes.estado.Succes, Url = redirectUrl, strMensaje = clsContantes.mensajeLoginExito });
+                            case 2:
+                                var redirectUrl2 = new UrlHelper(Request.RequestContext).Action("Registrar", "User");
+                                return Json(new { Estado = clsContantes.estado.Succes, Url = redirectUrl2, strMensaje = clsContantes.mensajeLoginExito });
                         }
                     }
                     return Json((new { Estado = clsContantes.estado.Failured, Url = new UrlHelper(Request.RequestContext).Action("Index", "User"), strMensaje = clsContantes.mensajeLoginError }));

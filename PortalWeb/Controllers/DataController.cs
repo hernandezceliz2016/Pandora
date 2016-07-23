@@ -6,14 +6,17 @@ using Business_Logic.Usuario;
 using Entity_Logic.Entity;
 using System.Net.Mail;
 using System.Net;
+using System.Threading.Tasks;
+using System.Collections;
 
 namespace PortalWeb.Controllers
 {
     public class DataController : Controller
     {
-        //clsModelUploadFile lnFile = new clsModelUploadFile();
+
         clsModelUsuarioDocumento objUsuaDocLn = new clsModelUsuarioDocumento();
         // GET: Data
+
         public JsonResult SaveFiles(string description)
         {
             string Message, fileName, actualFileName;
@@ -26,6 +29,7 @@ namespace PortalWeb.Controllers
                 actualFileName = file.FileName;
                 fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
                 int size = file.ContentLength;
+
                 try
                 {
                     file.SaveAs(Path.Combine(Server.MapPath("/UploadedFiles"), fileName));
@@ -43,8 +47,8 @@ namespace PortalWeb.Controllers
                         {
                             Message = "File uploaded successfully";
                             flag = true;
-                            sendEmail();
-                        }                        
+                            //var objTemporal = SendMailAsync();
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -55,36 +59,56 @@ namespace PortalWeb.Controllers
             return new JsonResult { Data = new { Message = Message, Status = flag } };
         }
 
-        public void sendEmail() {
+        public async Task<ActionResult> SendMailAsync()
+        {
+            Func<ActionResult> t = sendEmail;
+            ActionResult funcionEnEspera = await EjecutarFuncionEnEspera(t);           
+            return View();
+        }            
+      
+
+        private static Task<ActionResult> EjecutarFuncionEnEspera(Func<ActionResult> funcion)
+        {
+            return Task.Factory.StartNew(() => funcion());
+        }
+
+        public ActionResult sendEmail()
+        {
 
             MailMessage email = new MailMessage();
             email.To.Add(new MailAddress("garcia.conza@gmail.com"));
             email.From = new MailAddress("garcia.conza@gmail.com");
-            email.Subject = "Asunto ( " + DateTime.Now.ToString("dd / MMM / yyy hh:mm:ss") + " ) ";
-            email.Body = "Cualquier contenido en <b>HTML</b> para enviarlo por correo electrónico.";
+            email.Subject = "[NOTIFICACION] ADJUNTARON ARCHIVO";
+            email.Body = "Se le informa que el cliente Christian Garcia acaba de adjuntra archivo.";
             email.IsBodyHtml = true;
             email.Priority = MailPriority.Normal;
 
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 465;
-            smtp.EnableSsl = false;
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential("garcia.conza@gmail.com", "28JSF28.");
 
-            string output = null;
-
-            try
+            using (SmtpClient smtp = new SmtpClient())
             {
-                smtp.Send(email);
-                email.Dispose();               
-                output = "Corre electrónico fue enviado satisfactoriamente.";
-            }
-            catch (Exception ex)
-            {
-                output = "Error enviando correo electrónico: " + ex.Message;
-            }
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("garcia.conza@gmail.com", "28JSF28.");
 
+                string output = null;
+
+                try
+                {
+                    smtp.Send(email);
+                    email.Dispose();
+                    output = "Corre electrónico fue enviado satisfactoriamente.";
+                }
+                catch (Exception ex)
+                {
+                    output = "Error enviando correo electrónico: " + ex.Message;
+                }
+
+            }
+            return View();
         }
+
     }
 }
