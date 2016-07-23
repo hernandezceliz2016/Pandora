@@ -15,7 +15,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <span>Select File:</span>
-                            <input type="file" name="file" accept="text/plain" onchange="angular.element(this).scope().SelectedFileForUpload(this.files)" required />
+                            @*<input type="file" name="file" accept="text/plain" onchange="angular.element(this).scope().SelectedFileForUpload(this.files)"  required ng-file="getThefile($files)" />*@
+                            <input type="file" multiple  ng-file="getThefile($files)" />
                             <span class="error" ng-show="(f1.file.$dirty || IsFormSubmitted) && f1.file.$error.required">Image required</span>
                             <span class="error">{{FileInvalidMessage}}</span>
                         </div>                    
@@ -24,17 +25,17 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Size</th>
+                                    <th>Titulo</th>
+                                    <th>Tipo</th>
+                                    <th>Tamaño</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>john@example.com</td>
+                                <tr ng-repeat="file in imagesrc track by $index">
+                                    <td>{{file.gugo}}</td>
+                                    <td>{{file.typeG}}</td>
+                                    <td>{{file.sizeG}}</td>
                                     <td><input type="button" class="btn btn-danger btn-sm" value="delete"/></td>
 
                                 </tr>
