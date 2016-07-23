@@ -50,13 +50,17 @@ namespace PortalWeb.Controllers
             try
             {
                 var entUser = lnUser.FnBuscarUsuarioPorDni(strDni);
-                return Json(new { data = entUser }, JsonRequestBehavior.AllowGet);
+                if (entUser?.CodigoUsua > 0)
+                {
+                    return Json(new { Estado = clsContantes.estado.Succes, Data = entUser, strMensaje = string.Empty }, JsonRequestBehavior.AllowGet);
+                }
+                return Json(new { Estado = clsContantes.estado.Failured, Data = string.Empty, strMensaje = clsContantes.mensajeBusqNoEncontrada },JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            return Json(new { data = new clsUsuario(), mensaje = "No se encontro el usuario" },
+            return Json(new { Estado = clsContantes.estado.ErrorCritico, Data = string.Empty, strMensaje = clsContantes.mensajeErrorCritico },
                 JsonRequestBehavior.AllowGet);
         }
 
