@@ -19,25 +19,23 @@ namespace PortalWeb.Controllers
             string Message, fileName, actualFileName;
             Message = fileName = actualFileName = string.Empty;
             bool flag = false;
-           
 
             if (Request.Files != null)
             {
                 var file = Request.Files[0];
                 actualFileName = file.FileName;
-                fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);              
+                fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
                 int size = file.ContentLength;
-                
                 try
                 {
                     file.SaveAs(Path.Combine(Server.MapPath("/UploadedFiles"), fileName));
                     clsUsuarioDocumento f = new clsUsuarioDocumento
-                    {                       
-                        CodigoUsua = clsContantes.userCodigo,
+                    {
+                        CodigoUsua = clsSessionHelper.FnGetUserSession.CodigoUsua,
                         Descripcion = description,
                         RutaFisica = fileName,
                         FechReg = DateTime.Now,
-                        Estado = 1,                       
+                        Estado = 1,
                     };
                     {
                         var codigo = objUsuaDocLn.FnGuardarArchivo(f);

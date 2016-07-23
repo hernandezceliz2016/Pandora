@@ -2,7 +2,6 @@
     var user = {};
     $scope.documento = "45019503";
     $scope.RegistrarUsuario = function () {
-
         user.Apellido = $scope.usuario.apellidos;
         user.Nombre = $scope.usuario.nombres;
         user.Nombres = $scope.usuario.apellidos + ' ' + $scope.usuario.nombres;
@@ -38,7 +37,13 @@
             data: user
         }).then(function mySucces(response) {
             debugger;
-            $window.location.href = response.data.Url;
+            if (response.data.Estado === 1) {
+                $window.location.href = response.data.Url;
+            } else if (response.data.Estado === 0) {
+                $scope.inputMensaje = response.data.strMensaje;
+            }
+            debugger;
+
         }, function myError(response) {
             debugger;
             $scope.myWelcome = response.statusText;
