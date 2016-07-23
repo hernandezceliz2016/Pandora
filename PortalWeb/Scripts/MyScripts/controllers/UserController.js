@@ -1,6 +1,9 @@
 ﻿var userController = function ($scope, $http, $location, $window, UserService) {
     var user = {};
-    $scope.documento = "45019503";
+
+    $scope.documentoBusqueda = "45019503";
+
+
     $scope.RegistrarUsuario = function () {
         user.Apellido = $scope.usuario.apellidos;
         user.Nombre = $scope.usuario.nombres;
@@ -61,23 +64,40 @@
         user.Email = $scope.usuario.email;
     };
 
+    $scope.FnLimpiarControles = function () {
+        debugger;
+        $scope.apellido = "";
+        $scope.nombre = "";
+        $scope.dni = "";
+        $scope.user = "";
+        $scope.pass = "";
+        $scope.email = "";
+        $scope.passConfir = "";
+        $scope.mensajeBusqUser = "";
+    };
+
     $scope.FnBusarUserPorDni = function () {
+        $scope.FnLimpiarControles();
         var url = "BuscarPorDni/?strDni=" + $scope.documentoBusqueda;
         return $http.get(url).then(function (results) {
             debugger;
-            var data = results.data.data;
-            if (data.Dni !== "") {
+            var estado = results.data.Estado;
+            if (estado === 1) {
+                var data = results.data.Data;
                 $scope.apellido = data.Apellido;
-                $scope.usuario.nombre = data.Nombre;
-                $scope.usuario.dni = data.Dni;
-                $scope.usuario.user = data.Usua;
-                $scope.usuario.pass = data.Pass;
-                $scope.usuario.email = data.Email;
-            } else {
-                alert("NO SE ENCONTRO EL USUARIO");
+                $scope.nombre = data.Nombre;
+                $scope.dni = data.Dni;
+                $scope.user = data.Usua;
+                $scope.pass = data.Pass;
+                $scope.email = data.Email;
+                $scope.passConfir = data.Pass;
+            } else if (estado === 0) {
+                $scope.mensajeBusqUser = results.data.strMensaje;
             }
         });
     };
+
+
 
 }
 userController.$inject = ['$scope', '$http', '$location', '$window', 'UserService'];

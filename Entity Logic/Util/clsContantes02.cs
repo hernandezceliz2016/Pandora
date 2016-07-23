@@ -27,6 +27,7 @@ namespace Entity_Logic.Util
         public static string mensajeLoginExito = "ACCESO CONCEDIDO";
         public static string mensajeLoginError = "USUARIO NO REGISTRADO";
         public static string mensajeErrorCritico = "SE HA PRODUCIDO UN ERROR CRITICO";
+        public static string mensajeBusqNoEncontrada = "BUSQUEDA NO ENCONTRADA";
 
 
         public enum estado
