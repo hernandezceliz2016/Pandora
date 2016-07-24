@@ -19,5 +19,20 @@ namespace Entity_Logic.Entity
         public Nullable<System.DateTime> FechExpiracion { get; set; }
         public Nullable<System.DateTime> FechReg { get; set; }
         public Nullable<int> Estado { get; set; }
+
+        public clsUsuario()
+        {
+            CodigoUsua = 0;
+            Dni = string.Empty;
+            Apellido = string.Empty;
+            Nombre = string.Empty;
+            Nombres = string.Empty;
+            Usua = string.Empty;
+            Pass = string.Empty;
+            Email = string.Empty;
+            Estado = 0;
+        }
     }
+
+
 }

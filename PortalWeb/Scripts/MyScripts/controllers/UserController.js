@@ -1,9 +1,7 @@
 ﻿    var userController = function ($scope, $http, $location, $window, UserService) {
     var user = {};
-
-    $scope.documentoBusqueda = "45019503";
-
-
+    debugger;
+    $scope.UserLogin = "";
     $scope.RegistrarUsuario = function () {
         user.Apellido = $scope.usuario.apellidos;
         user.Nombre = $scope.usuario.nombres;
@@ -21,8 +19,7 @@
         }).then(function mySucces(response) {
             debugger;
             $scope.usuario.mensaje = response.data.Data;
-            $scope.mensaje.alert();
-            alert("hola");
+
         }, function myError(response) {
             debugger;
             $scope.myWelcome = response.statusText;
@@ -42,6 +39,7 @@
             debugger;
             if (response.data.Estado === 1) {
                 $window.location.href = response.data.Url;
+                $scope.UserLogin = response.data.User;
             } else if (response.data.Estado === 0) {
                 $scope.inputMensaje = response.data.strMensaje;
             }
@@ -53,15 +51,56 @@
         });
     };
 
+    var init = function () {
+        var url = "ObtenerUserLogin";
+        $http.get(url).then(function (results) {
+            debugger;
+            var data = results.data;
+            if (data.Estado === 1) {
+                $scope.UserLogin = data.User.Usua;
+            } else if (data.Estado === 0) {
+                $scope.UserLogin = "USUARIO DESCONOCIDO";
+            }
+        });
+    };
+    init();
+}
+userController.$inject = ['$scope', '$http', '$location', '$window', 'UserService'];
+
+
+
+
+var userModificarController = function ($scope, $http, $location, $window, UserService) {
+    var user = {};
+    $scope.documentoBusqueda = "45019503";
+    $scope.strMensajeGuardarUser = "";
     $scope.FnModificarUser = function () {
         debugger;
-        user.Apellido = $scope.usuario.apellido;
-        user.Nombre = $scope.usuario.nombre;
-        user.Nombres = $scope.usuario.apellido + ' ' + $scope.usuario.nombre;
-        user.Dni = $scope.usuario.dni;
-        user.Usua = $scope.usuario.user;
-        user.Pass = $scope.usuario.pass;
-        user.Email = $scope.usuario.email;
+        user.Apellido = $scope.apellido;
+        user.Nombre = $scope.nombre;
+        user.Nombres = $scope.apellido + ' ' + $scope.nombre;
+        user.Dni = $scope.dni;
+        user.Usua = $scope.user;
+        user.Pass = $scope.pass;
+        user.Email = $scope.FrmModUsuario.email.$modelValue;
+        $http({
+            method: "POST",
+            url: "/User/Modificar",
+            headers: { 'Content-Type': 'application/json' },
+            data: user
+        }).then(function succes(response) {
+            debugger;
+            var data = response.data;
+            if (data.Estado === 1) {
+                $scope.strMensajeGuardarUser = data.strMensaje;
+            } else if (data.Estado === 0) {
+                $scope.strMensajeGuardarUser = data.strMensaje;
+            }
+
+        }, function failured(response) {
+
+        });
+
     };
 
     $scope.FnLimpiarControles = function () {
@@ -74,6 +113,7 @@
         $scope.email = "";
         $scope.passConfir = "";
         $scope.mensajeBusqUser = "";
+        $scope.strMensajeGuardarUser = "";
     };
 
     $scope.FnBusarUserPorDni = function () {
@@ -82,8 +122,9 @@
         return $http.get(url).then(function (results) {
             debugger;
             var estado = results.data.Estado;
+            var data = results.data.Data;
             if (estado === 1) {
-                var data = results.data.Data;
+                this.usuarioMod = data;
                 $scope.apellido = data.Apellido;
                 $scope.nombre = data.Nombre;
                 $scope.dni = data.Dni;
@@ -96,8 +137,24 @@
             }
         });
     };
-
-
-
 }
-userController.$inject = ['$scope', '$http', '$location', '$window', 'UserService'];
+
+userModificarController.$inject = ['$scope', '$http', '$location', '$window', 'UserService'];
+
+
+//var data = results.data.Data;
+//$scope.apellido = data.Apellido;
+//$scope.nombre = data.Nombre;
+//$scope.dni = data.Dni;
+//$scope.user = data.Usua;
+//$scope.pass = data.Pass;
+//$scope.email = data.Email;
+//$scope.passConfir = data.Pass;
+
+//$scope.usuarioMod.dni = $scope.dni;
+//$scope.usuarioMod.apellido = $scope.apellido;
+//$scope.usuarioMod.nombre = $scope.nombre;
+//$scope.usuarioMod.email = $scope.email;
+//$scope.usuarioMod.user = $scope.user;
+//$scope.usuarioMod.pass = $scope.pass;
+//$scope.usuarioMod.passConfir = $scope.passConfir;
