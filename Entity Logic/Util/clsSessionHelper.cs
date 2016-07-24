@@ -37,6 +37,7 @@ namespace Entity_Logic.Util
             set { FnSetearSession(SESSION_USUARIO, value); }
         }
 
+        public static string ObtenerSessionUser => SESSION_USUARIO;
         public static bool SessionExpirada => FnGetUserSession == null || FnGetUserSession?.CodigoUsua == 0;
     }
 }

@@ -1,6 +1,7 @@
 ﻿var userController = function ($scope, $http, $location, $window, UserService) {
     var user = {};
-
+    debugger;
+    $scope.UserLogin = "";
     $scope.RegistrarUsuario = function () {
         user.Apellido = $scope.usuario.apellidos;
         user.Nombre = $scope.usuario.nombres;
@@ -38,6 +39,7 @@
             debugger;
             if (response.data.Estado === 1) {
                 $window.location.href = response.data.Url;
+                $scope.UserLogin = response.data.User;
             } else if (response.data.Estado === 0) {
                 $scope.inputMensaje = response.data.strMensaje;
             }
@@ -49,6 +51,19 @@
         });
     };
 
+    var init = function () {
+        var url = "ObtenerUserLogin";
+        $http.get(url).then(function (results) {
+            debugger;
+            var data = results.data;
+            if (data.Estado === 1) {
+                $scope.UserLogin = data.User.Usua;
+            } else if (data.Estado === 0) {
+                $scope.UserLogin = "USUARIO DESCONOCIDO";
+            }
+        });
+    };
+    init();
 }
 userController.$inject = ['$scope', '$http', '$location', '$window', 'UserService'];
 
@@ -56,15 +71,9 @@ userController.$inject = ['$scope', '$http', '$location', '$window', 'UserServic
 
 
 var userModificarController = function ($scope, $http, $location, $window, UserService) {
-
     var user = {};
     $scope.documentoBusqueda = "45019503";
     $scope.strMensajeGuardarUser = "";
-
-    $scope.FnObtenerValor = function (arg1, arg2) {
-        return angular.isUndefined(arg1) ? arg2 : arg1;
-    }
-
     $scope.FnModificarUser = function () {
         debugger;
         user.Apellido = $scope.apellido;

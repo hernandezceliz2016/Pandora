@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.Mvc;
 using Business_Logic.Usuario;
 using Entity_Logic.Entity;
@@ -120,8 +121,7 @@ namespace PortalWeb.Controllers
         // GET: User/Edit/5
         public ActionResult Modificar()
         {
-            // if (!clsSessionHelper.SessionExpirada)
-            if (true)
+            if (!clsSessionHelper.SessionExpirada)
             {
                 return View();
             }
@@ -152,8 +152,9 @@ namespace PortalWeb.Controllers
                                 var redirectUrl = new UrlHelper(Request.RequestContext).Action("Part8", "Home");
                                 return Json(new { Estado = clsContantes.estado.Succes, Url = redirectUrl, strMensaje = clsContantes.mensajeLoginExito });
                             case 2:
+                                var Usuario = clsSessionHelper.FnGetUserSession.Usua;
                                 var redirectUrl2 = new UrlHelper(Request.RequestContext).Action("Registrar", "User");
-                                return Json(new { Estado = clsContantes.estado.Succes, Url = redirectUrl2, strMensaje = clsContantes.mensajeLoginExito });
+                                return Json(new { Estado = clsContantes.estado.Succes, Url = redirectUrl2, strMensaje = clsContantes.mensajeLoginExito, User = Usuario });
                         }
                     }
                     return Json((new { Estado = clsContantes.estado.Failured, Url = new UrlHelper(Request.RequestContext).Action("Index", "User"), strMensaje = clsContantes.mensajeLoginError }));
@@ -164,6 +165,31 @@ namespace PortalWeb.Controllers
                 Console.WriteLine(ex.Message);
             }
             return Json(new { Estado = clsContantes.estado.ErrorCritico, Url = new UrlHelper(Request.RequestContext).Action("Caducado", "User") });
+        }
+
+        public ActionResult CerrarSession()
+        {
+            try
+            {
+                Session.Abandon();
+                Response.Cookies.Add(new HttpCookie(clsSessionHelper.ObtenerSessionUser));
+                return RedirectToAction("Index", "User");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return RedirectToAction("Index", "User");
+        }
+
+        public JsonResult ObtenerUserLogin()
+        {
+            if (!clsSessionHelper.SessionExpirada)
+            {
+                var User = clsSessionHelper.FnGetUserSession;
+                return Json(new { Estado = clsContantes.estado.Succes, User }, JsonRequestBehavior.AllowGet);
+            }
+            return Json(new { Estado = clsContantes.estado.Desctivado }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

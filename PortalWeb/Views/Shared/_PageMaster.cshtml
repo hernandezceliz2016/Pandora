@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <title> REGISTRO DE USUARIO </title>
-    @*@Styles.Render("~/Content/css")*@
+
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/Mystyle.css" rel="stylesheet" />
-    @*@Scripts.Render("~/bundles/modernizr")*@
+
     @{
         ViewBag.Title = "_PageMaster";
     }
@@ -16,12 +16,17 @@
 
     <div class="wrapper">
         <header class="header header-fixed navbar container-fluid">
-            <div class="row" style="text-align: left">
+            <div ng-controller="UserController" class="row" style="text-align: left">
                 <div class="brand col-sm-3"></div>
                 <a href="#" class="navbar-brand">
                     <i class="glyphicon glyphicon-bitcoin"></i>
                     <span class="glyphicon-font"> ITECNOLOGY- SOLARIS</span>
                 </a>
+                <a href="/User/CerrarSession" class="navbar-brand" style="float: right">
+                    <i class="glyphicon glyphicon-bitcoin"></i>
+                    <span class="glyphicon-font">Ha Iniciado Session Como {{UserLogin}} : Salir </span>
+                </a>
+                @*@Html.ActionLink("Salir", "CerrarSession", "User", new { @class = "navbar-brand", style = "float: right" })*@
             </div>
         </header>
         <div class="box">
