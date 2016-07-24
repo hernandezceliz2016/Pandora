@@ -14,14 +14,14 @@ namespace Business_Logic.Usuario
 {
     public class clsModelUsuarioDocumento
     {
-        IUsuarioDocumentoService usuarioDocuService = new UsuarioDocumentoServiceImpl();
+        IUsuarioDocumentoService usuarioDocuDAO = new UsuarioDocumentoServiceImpl();
 
         public int FnGuardarArchivo(clsUsuarioDocumento file)
         {
             try
             {
                 var entidad = mapear.AutoMapToUsuariodocumento(file);
-                var idFile = (int)usuarioDocuService.Insertar(entidad);
+                var idFile = (int)usuarioDocuDAO.Insertar(entidad);
                 return idFile;
             }
             catch (Exception ex)
@@ -29,6 +29,18 @@ namespace Business_Logic.Usuario
                 Console.WriteLine(ex.Message);
             }
             return 0;
+        }
+
+        public List<clsUsuarioDocumento> FnListarFiles() {
+
+            var lista = usuarioDocuDAO.Listar();
+            var objList = new List<clsUsuarioDocumento>();
+            foreach (var item in lista)
+            {
+                objList.Add(mapear.AutoMapToClsUsuarioDocumento(item));
+            }
+
+            return objList;
         }
 
         public void FnInicializarFuncionEnParalelo()

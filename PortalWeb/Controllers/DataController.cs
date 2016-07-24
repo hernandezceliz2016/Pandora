@@ -59,13 +59,18 @@ namespace PortalWeb.Controllers
             return new JsonResult { Data = new { Message = Message, Status = flag } };
         }
 
+        public JsonResult ListarFiles()
+        {
+            var model = objUsuaDocLn.FnListarFiles();
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
         public async Task<ActionResult> SendMailAsync()
         {
             Func<ActionResult> t = sendEmail;
-            ActionResult funcionEnEspera = await EjecutarFuncionEnEspera(t);           
+            ActionResult funcionEnEspera = await EjecutarFuncionEnEspera(t);
             return View();
-        }            
-      
+        }
 
         private static Task<ActionResult> EjecutarFuncionEnEspera(Func<ActionResult> funcion)
         {

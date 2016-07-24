@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Part8";
+    ViewBag.Title = "UpLoad";
     Layout = "~/Views/Shared/_contenedor.cshtml";
 }
 <div ng-app="MyApp" ng-controller="Part8Controller">
@@ -20,29 +20,7 @@
                             <span class="error" ng-show="(f1.file.$dirty || IsFormSubmitted) && f1.file.$error.required">Image required</span>
                             <span class="error">{{FileInvalidMessage}}</span>
                         </div>                    
-                    </div>
-                    <div>
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Titulo</th>
-                                    <th>Tipo</th>
-                                    <th>Tamaño</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="file in imagesrc track by $index">
-                                    <td>{{file.gugo}}</td>
-                                    <td>{{file.typeG}}</td>
-                                    <td>{{file.sizeG}}</td>
-                                    <td><input type="button" class="btn btn-danger btn-sm" value="delete"/></td>
-
-                                </tr>
-                            </tbody>
-                         </table>
-                        
-                    </div>                    
+                    </div>                                
                 </div>
                 <ul class="list-group">                 
                     <li class="list-group-item">

@@ -1,4 +1,4 @@
-﻿var userController = function ($scope, $http, $location, $window, UserService) {
+﻿    var userController = function ($scope, $http, $location, $window, UserService) {
     var user = {};
 
     $scope.documentoBusqueda = "45019503";

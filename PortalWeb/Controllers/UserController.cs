@@ -127,7 +127,7 @@ namespace PortalWeb.Controllers
                             case 0:
                                 return Caducado();
                             case 1:
-                                var redirectUrl = new UrlHelper(Request.RequestContext).Action("Part8", "Home");
+                                var redirectUrl = new UrlHelper(Request.RequestContext).Action("UpLoad", "Home");
                                 return Json(new { Estado = clsContantes.estado.Succes, Url = redirectUrl, strMensaje = clsContantes.mensajeLoginExito });
                             case 2:
                                 var redirectUrl2 = new UrlHelper(Request.RequestContext).Action("Registrar", "User");

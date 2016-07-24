@@ -43,7 +43,7 @@ namespace Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_SERVICEIMPL
 
         public List<usuariodocumento> Listar()
         {
-            throw new NotImplementedException();
+            return db.Listar();
         }
 
         public usuariodocumento ObtenerPorId(string Id)

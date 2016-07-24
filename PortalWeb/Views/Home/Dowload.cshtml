@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Download";
+    Layout = "~/Views/Shared/_PageMaster.cshtml";
+}
+
+<div >
+
+    <div class="Container">
+        <div class="row">    
+            <table class="table table-responsive table-striped">
+                <thead>
+                    <tr>
+                        <th>CodigoUsuaDoc</th>
+                        <th>CodigoUsua</th>
+                        <th>RutaFisica</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat='elem in FilesData'>
+                    <tr>
+                        <td ng-bind="elem.CodigoUsuaDoc"></td>
+                        <td ng-bind="elem.CodigoUsua"></td>
+                        <td ng-bind="elem.RutaFisica"></td>
+                        <td >
+                            <input type="button" class="btn btn-info small" ng-click="makeUrl()" value="Download" />
+                            @*<a  ng-href="{{makeUrl()}}">{{makeUrl()}}</a>*@
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{   
+    <script src="~/Scripts/MyScripts/controllers/DownloadController.js"></script>
+}
+
+  
