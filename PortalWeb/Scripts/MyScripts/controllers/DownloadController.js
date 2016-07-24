@@ -2,11 +2,13 @@
 
 .controller('DownloadController', function ($scope, $http) {
    
-    var url = "/Data/ListarFiles";
-    return $http.get(url).then(function (results) {
-        debugger;
-        $scope.FilesData = results.data;       
-    });
+    $scope.verData = function () {
+        var url = "/Data/ListarFiles";
+        return $http.get(url).then(function (results) {
+            debugger;
+            $scope.FilesData = results.data;
+        });
+    };
 
     $scope.makeUrl = function () {
         debugger;

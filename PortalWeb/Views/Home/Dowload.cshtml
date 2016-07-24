@@ -1,10 +1,12 @@
 ﻿
 @{
     ViewBag.Title = "Download";
-    Layout = "~/Views/Shared/_PageMaster.cshtml";
+    Layout = "~/Views/Shared/_contenedor.cshtml";
 }
 
-<div >
+<div ng-app="MyAppD" ng-controller="DownloadController">
+
+    <input type="button" class="btn btn-info " ng-click="verData()" value="Ver info"/>
 
     <div class="Container">
         <div class="row">    
