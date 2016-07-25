@@ -49,7 +49,9 @@ namespace Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_DAOIMPL
 
         public List<usuariodocumento> Listar()
         {
-            throw new NotImplementedException();
+            var usuariosDocumentos = db.usuariodocumento;
+
+            return usuariosDocumentos.ToList();
         }
 
         public usuariodocumento ObtenerPorId(string Id)

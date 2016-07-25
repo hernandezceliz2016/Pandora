@@ -13,7 +13,12 @@ namespace PortalWeb.Controllers
             return View();
         }
 
-        public ActionResult Part8()
+        public ActionResult UpLoad()
+        {
+            return View();
+        }
+        
+        public ActionResult Dowload()
         {
             return View();
         }

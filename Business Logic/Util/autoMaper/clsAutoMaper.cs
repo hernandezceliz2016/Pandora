@@ -25,6 +25,7 @@ namespace Business_Logic.Util.autoMaper
                 .ForMember(x => x.usuario, y => y.Ignore());
                 mc.CreateMap<usuario, clsUsuario>();
                 mc.CreateMap<UploadedFile, uploadfile>();
+                mc.CreateMap<usuariodocumento, clsUsuarioDocumento>();
 
 
             });
@@ -61,7 +62,8 @@ namespace Business_Logic.Util.autoMaper
 
         public static clsUsuarioDocumento AutoMapToClsUsuarioDocumento(usuariodocumento usuariodocumento)
         {
-            return Mapper.Map<usuariodocumento, clsUsuarioDocumento>(usuariodocumento);
+            //return Mapper.Map<usuariodocumento, clsUsuarioDocumento>(usuariodocumento);
+            return clsAutoMaper.InicializarAutoMaper().CreateMapper().Map<usuariodocumento, clsUsuarioDocumento>(usuariodocumento);
         }
 
         public static usuariodocumento AutoMapToUsuariodocumento(clsUsuarioDocumento clsUsuarioDocumento)
