@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TecnologyModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="gallary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="guid" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="Title" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="uploadfile">
+    <Key>
+      <PropertyRef Name="FileID" />
+    </Key>
+    <Property Name="FileID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="300" />
+    <Property Name="FilePath" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="File" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="CodigoUsua" />
+    </Key>
+    <Property Name="CodigoUsua" Type="int" Nullable="false" />
+    <Property Name="Dni" Type="varchar" MaxLength="8" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Nombres" Type="varchar" MaxLength="100" />
+    <Property Name="Usua" Type="varchar" MaxLength="30" />
+    <Property Name="Pass" Type="varchar" MaxLength="200" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="FechExpiracion" Type="date" />
+    <Property Name="FechReg" Type="datetime" Precision="0" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <EntityType Name="usuariodocumento">
+    <Key>
+      <PropertyRef Name="CodigoUsuaDoc" />
+    </Key>
+    <Property Name="CodigoUsuaDoc" Type="int" Nullable="false" />
+    <Property Name="CodigoUsua" Type="int" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="200" />
+    <Property Name="RutaFisica" Type="varchar" MaxLength="200" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="FechReg" Type="datetime" Precision="0" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <Association Name="FK_usuario_documento">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="usuariodocumento" Type="Self.usuariodocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="CodigoUsua" />
+      </Principal>
+      <Dependent Role="usuariodocumento">
+        <PropertyRef Name="CodigoUsua" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TecnologyModelStoreContainer">
+    <EntitySet Name="gallary" EntityType="Self.gallary" Schema="solaris" store:Type="Tables" />
+    <EntitySet Name="uploadfile" EntityType="Self.uploadfile" Schema="solaris" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="solaris" store:Type="Tables" />
+    <EntitySet Name="usuariodocumento" EntityType="Self.usuariodocumento" Schema="solaris" store:Type="Tables" />
+    <AssociationSet Name="FK_usuario_documento" Association="Self.FK_usuario_documento">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="usuariodocumento" EntitySet="usuariodocumento" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

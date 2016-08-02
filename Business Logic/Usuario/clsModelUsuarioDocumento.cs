@@ -2,6 +2,7 @@
 using Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_SERVICE;
 using Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_SERVICEIMPL;
 using Entity_Logic.Entity;
+using Entity_Logic.Entity.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,13 @@ namespace Business_Logic.Usuario
             {
                 objList.Add(mapear.AutoMapToClsUsuarioDocumento(item));
             }
+
+            return objList;
+        }
+        public List<clsGetAllFile> FnGetListAllFile()
+        {            
+            var objList = new List<clsGetAllFile>();
+            objList = usuarioDocuDAO.GetListAllFile();
 
             return objList;
         }

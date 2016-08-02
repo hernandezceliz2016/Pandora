@@ -59,3 +59,64 @@ C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Porta
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Entity Logic.pdb
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\AutoMapper.xml
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\PortalWeb\bin\Data Access Logic.pdb
+C:\Proyectos\ITec\PortalWeb\bin\roslyn\csc.exe
+C:\Proyectos\ITec\PortalWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Proyectos\ITec\PortalWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Proyectos\ITec\PortalWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Proyectos\ITec\PortalWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Proyectos\ITec\PortalWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Proyectos\ITec\PortalWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Proyectos\ITec\PortalWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Proyectos\ITec\PortalWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Proyectos\ITec\PortalWeb\bin\roslyn\vbc.exe
+C:\Proyectos\ITec\PortalWeb\bin\roslyn\VBCSCompiler.exe
+C:\Proyectos\ITec\PortalWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Proyectos\ITec\PortalWeb\bin\PortalWeb.dll.config
+C:\Proyectos\ITec\PortalWeb\bin\PortalWeb.dll
+C:\Proyectos\ITec\PortalWeb\bin\PortalWeb.pdb
+C:\Proyectos\ITec\PortalWeb\bin\Antlr3.Runtime.dll
+C:\Proyectos\ITec\PortalWeb\bin\Business Logic.dll
+C:\Proyectos\ITec\PortalWeb\bin\Entity Logic.dll
+C:\Proyectos\ITec\PortalWeb\bin\EntityFramework.dll
+C:\Proyectos\ITec\PortalWeb\bin\EntityFramework.SqlServer.dll
+C:\Proyectos\ITec\PortalWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Proyectos\ITec\PortalWeb\bin\Microsoft.Web.Infrastructure.dll
+C:\Proyectos\ITec\PortalWeb\bin\MySql.Data.dll
+C:\Proyectos\ITec\PortalWeb\bin\MySql.Data.Entity.EF6.dll
+C:\Proyectos\ITec\PortalWeb\bin\Newtonsoft.Json.dll
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.Helpers.dll
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.Mvc.dll
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.Optimization.dll
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.Razor.dll
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.WebPages.Deployment.dll
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.WebPages.dll
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.WebPages.Razor.dll
+C:\Proyectos\ITec\PortalWeb\bin\WebGrease.dll
+C:\Proyectos\ITec\PortalWeb\bin\AutoMapper.dll
+C:\Proyectos\ITec\PortalWeb\bin\Data Access Logic.dll
+C:\Proyectos\ITec\PortalWeb\bin\Business Logic.pdb
+C:\Proyectos\ITec\PortalWeb\bin\Entity Logic.pdb
+C:\Proyectos\ITec\PortalWeb\bin\EntityFramework.xml
+C:\Proyectos\ITec\PortalWeb\bin\EntityFramework.SqlServer.xml
+C:\Proyectos\ITec\PortalWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.Helpers.xml
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.Mvc.xml
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.Optimization.xml
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.Razor.xml
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.WebPages.xml
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.WebPages.Deployment.xml
+C:\Proyectos\ITec\PortalWeb\bin\System.Web.WebPages.Razor.xml
+C:\Proyectos\ITec\PortalWeb\bin\Antlr3.Runtime.pdb
+C:\Proyectos\ITec\PortalWeb\bin\Newtonsoft.Json.xml
+C:\Proyectos\ITec\PortalWeb\bin\AutoMapper.xml
+C:\Proyectos\ITec\PortalWeb\bin\Data Access Logic.pdb
+C:\Proyectos\ITec\PortalWeb\bin\es\System.Web.Helpers.resources.dll
+C:\Proyectos\ITec\PortalWeb\bin\es\System.Web.Mvc.resources.dll
+C:\Proyectos\ITec\PortalWeb\bin\es\System.Web.Optimization.resources.dll
+C:\Proyectos\ITec\PortalWeb\bin\es\System.Web.Razor.resources.dll
+C:\Proyectos\ITec\PortalWeb\bin\es\System.Web.WebPages.resources.dll
+C:\Proyectos\ITec\PortalWeb\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Proyectos\ITec\PortalWeb\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Proyectos\ITec\PortalWeb\obj\Debug\PortalWeb.csprojResolveAssemblyReference.cache
+C:\Proyectos\ITec\PortalWeb\obj\Debug\PortalWeb.dll
+C:\Proyectos\ITec\PortalWeb\obj\Debug\PortalWeb.pdb

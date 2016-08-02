@@ -1,4 +1,6 @@
 ﻿using Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_DAO;
+using Entity_Logic.Entity;
+using Entity_Logic.Entity.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,24 @@ namespace Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_DAOIMPL
         public void FinalizarTransaccionExitosa()
         {
             throw new NotImplementedException();
+        }
+
+        public List<clsGetAllFile> GetListAllFile()
+        {
+            try
+            {
+                var strSql = " SELECT UD.CodigoUsuaDoc, UD.FechReg, U.Nombre , UD.RutaFisica " +
+                             " FROM usuariodocumento UD" +
+                             " INNER JOIN usuario U ON U.CodigoUsua = UD.CodigoUsua";
+                             
+                var obj = db.Database.SqlQuery<clsGetAllFile>(strSql).ToList();
+                return obj;
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            return null;
         }
 
         public void IniciarTransacion()
@@ -52,6 +72,7 @@ namespace Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_DAOIMPL
             var usuariosDocumentos = db.usuariodocumento;
 
             return usuariosDocumentos.ToList();
+                     
         }
 
         public usuariodocumento ObtenerPorId(string Id)
@@ -60,6 +81,11 @@ namespace Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_DAOIMPL
         }
 
         public bool Update(usuariodocumento objeto)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<usuariodocumento> IBaseDAO<usuariodocumento>.Listar()
         {
             throw new NotImplementedException();
         }

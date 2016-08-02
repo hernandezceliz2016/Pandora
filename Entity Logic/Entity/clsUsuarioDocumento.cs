@@ -15,5 +15,7 @@ namespace Entity_Logic.Entity
         public Nullable<System.DateTime> Fecha { get; set; }
         public Nullable<System.DateTime> FechReg { get; set; }
         public Nullable<int> Estado { get; set; }
+
+
     }
 }

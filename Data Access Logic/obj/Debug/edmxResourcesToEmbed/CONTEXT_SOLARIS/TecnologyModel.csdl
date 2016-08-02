@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TecnologyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TecnologyContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="gallary" EntityType="TecnologyModel.gallary" />
+    <EntitySet Name="usuario" EntityType="TecnologyModel.usuario" />
+    <EntitySet Name="usuariodocumento" EntityType="TecnologyModel.usuariodocumento" />
+    <AssociationSet Name="FK_usuario_documento" Association="TecnologyModel.FK_usuario_documento">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="usuariodocumento" EntitySet="usuariodocumento" />
+    </AssociationSet>
+    <EntitySet Name="uploadfile" EntityType="TecnologyModel.uploadfile" />
+  </EntityContainer>
+  <EntityType Name="gallary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="CodigoUsua" />
+    </Key>
+    <Property Name="CodigoUsua" Type="Int32" Nullable="false" />
+    <Property Name="Dni" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Usua" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FechExpiracion" Type="DateTime" />
+    <Property Name="FechReg" Type="DateTime" />
+    <Property Name="Estado" Type="Int32" />
+    <NavigationProperty Name="usuariodocumento" Relationship="TecnologyModel.FK_usuario_documento" FromRole="usuario" ToRole="usuariodocumento" />
+  </EntityType>
+  <EntityType Name="usuariodocumento">
+    <Key>
+      <PropertyRef Name="CodigoUsuaDoc" />
+    </Key>
+    <Property Name="CodigoUsuaDoc" Type="Int32" Nullable="false" />
+    <Property Name="CodigoUsua" Type="Int32" />
+    <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="RutaFisica" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" />
+    <Property Name="FechReg" Type="DateTime" />
+    <Property Name="Estado" Type="Int32" />
+    <NavigationProperty Name="usuario" Relationship="TecnologyModel.FK_usuario_documento" FromRole="usuariodocumento" ToRole="usuario" />
+  </EntityType>
+  <Association Name="FK_usuario_documento">
+    <End Type="TecnologyModel.usuario" Role="usuario" Multiplicity="0..1" />
+    <End Type="TecnologyModel.usuariodocumento" Role="usuariodocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="CodigoUsua" />
+      </Principal>
+      <Dependent Role="usuariodocumento">
+        <PropertyRef Name="CodigoUsua" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="uploadfile">
+    <Key>
+      <PropertyRef Name="FileID" />
+    </Key>
+    <Property Name="FileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="FilePath" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="File" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

@@ -11,3 +11,8 @@ C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Entit
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Entity Logic\bin\Debug\Entity Logic.pdb
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Entity Logic\obj\Debug\Entity Logic.dll
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Entity Logic\obj\Debug\Entity Logic.pdb
+C:\Proyectos\ITec\Entity Logic\bin\Debug\Entity Logic.dll
+C:\Proyectos\ITec\Entity Logic\bin\Debug\Entity Logic.pdb
+C:\Proyectos\ITec\Entity Logic\obj\Debug\Entity Logic.dll
+C:\Proyectos\ITec\Entity Logic\obj\Debug\Entity Logic.pdb
+C:\Proyectos\ITec\Entity Logic\obj\Debug\Entity Logic.csprojResolveAssemblyReference.cache

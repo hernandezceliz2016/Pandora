@@ -61,7 +61,7 @@ namespace PortalWeb.Controllers
 
         public JsonResult ListarFiles()
         {
-            var model = objUsuaDocLn.FnListarFiles();
+            var model = objUsuaDocLn.FnGetListAllFile();
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 

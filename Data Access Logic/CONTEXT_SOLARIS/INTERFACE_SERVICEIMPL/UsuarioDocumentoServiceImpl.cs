@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entity_Logic.Entity;
+using Entity_Logic.Entity.Query;
 
 namespace Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_SERVICEIMPL
 {
@@ -29,6 +31,11 @@ namespace Data_Access_Logic.CONTEXT_SOLARIS.INTERFACE_SERVICEIMPL
         public void FinalizarTransaccionExitosa()
         {
             throw new NotImplementedException();
+        }
+
+        public List<clsGetAllFile> GetListAllFile()
+        {
+            return db.GetListAllFile();
         }
 
         public void IniciarTransacion()
