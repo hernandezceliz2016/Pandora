@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity_Logic.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace PortalWeb.Controllers
 {
     public class HomeController : Controller
     {
+        //private readonly string strSessionMensaje = string.Empty;
+
         public ActionResult Index()
         {
             return View();
@@ -20,7 +23,12 @@ namespace PortalWeb.Controllers
         
         public ActionResult Dowload()
         {
-            return View();
+            if (!clsSessionHelper.SessionExpirada)
+            {
+                 return View();
+            }
+            
+            return RedirectToAction("/");
         }
     }
 }
