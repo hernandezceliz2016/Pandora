@@ -40,17 +40,3 @@ C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Data 
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Data Access Logic\obj\Debug\Data Access Logic.csprojResolveAssemblyReference.cache
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Data Access Logic\obj\Debug\Data Access Logic.dll
 C:\Users\DeveloperWindows7\Documents\Visual Studio 2015\Projects\PortalWeb\Data Access Logic\obj\Debug\Data Access Logic.pdb
-C:\Proyectos\ITec\Data Access Logic\bin\Debug\Data Access Logic.dll.config
-C:\Proyectos\ITec\Data Access Logic\bin\Debug\Data Access Logic.dll
-C:\Proyectos\ITec\Data Access Logic\bin\Debug\Data Access Logic.pdb
-C:\Proyectos\ITec\Data Access Logic\bin\Debug\Entity Logic.dll
-C:\Proyectos\ITec\Data Access Logic\bin\Debug\EntityFramework.dll
-C:\Proyectos\ITec\Data Access Logic\bin\Debug\EntityFramework.SqlServer.dll
-C:\Proyectos\ITec\Data Access Logic\bin\Debug\MySql.Data.dll
-C:\Proyectos\ITec\Data Access Logic\bin\Debug\mysql.data.entity.EF6.dll
-C:\Proyectos\ITec\Data Access Logic\bin\Debug\Entity Logic.pdb
-C:\Proyectos\ITec\Data Access Logic\bin\Debug\EntityFramework.xml
-C:\Proyectos\ITec\Data Access Logic\bin\Debug\EntityFramework.SqlServer.xml
-C:\Proyectos\ITec\Data Access Logic\obj\Debug\Data Access Logic.csprojResolveAssemblyReference.cache
-C:\Proyectos\ITec\Data Access Logic\obj\Debug\Data Access Logic.dll
-C:\Proyectos\ITec\Data Access Logic\obj\Debug\Data Access Logic.pdb
